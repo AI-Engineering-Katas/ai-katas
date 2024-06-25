@@ -10,7 +10,7 @@ The rules are broken down by the different Phases of the exercise. However, one 
 
 1. After teams have formed, a facilitator will send your team into a breakout room
 
-1. Create a new canvas on [draw.io](https://draw.io). Make sure everyone in the group joins the canvas. The canvas is your whiteboard
+1. Create a new whiteboard on Zoom. Make sure everyone in the group has access since the whiteboard will be used to collaborate.
 
 Once that's done, select your kata and proceed on to the Discussion Phase.
 
