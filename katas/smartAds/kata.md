@@ -8,3 +8,4 @@ Requirements:
 - an improved user experience
 - your solution improves value for companies that buy Google Search Ads
 - should cost less than 2x the cost of base tier Google Search Ads
+- The solution needs to account for potential fraud
