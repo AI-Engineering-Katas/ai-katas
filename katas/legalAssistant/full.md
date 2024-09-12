@@ -1,4 +1,4 @@
-## AI Engineering Kata: Legal Research Assistant
+## Legal Research Assistant
 
 ### Background
 
@@ -60,5 +60,3 @@ Entertainment IP law firms deal with numerous cases involving the use of protect
 2. **Contextual Understanding**: Enhance the assistant's ability to understand the context of legal queries for better accuracy.
 3. **Learning Capabilities**: Implement machine learning techniques to allow the assistant to improve its performance over time based on user feedback and new data.
 4. **Multi-Language Support**: Extend the assistant's capabilities to handle legal documents in multiple languages, catering to international law firms.
-
-This kata provides a comprehensive framework for developing an AI-driven legal research assistant, addressing the specific needs of entertainment IP law firms and leveraging the power of generative AI to enhance legal research processes.
