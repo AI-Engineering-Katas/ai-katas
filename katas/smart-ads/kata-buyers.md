@@ -1,8 +1,10 @@
-SmartSearchAds - Buyer
+# SmartSearchAds - Buyer
+
+## Scenario
 
 Google Ads has hired you to improve the user experience of search advertisements for buyers. They identified a gap between the ads that they are paid to serve on user searches and the interests of Google Search users. They want you to create a new service offering for companies who want to serve ads in Google Search.
 
-Requirements:
+## Requirements
 
 - An improved user experience for people/companies purchasing the ads.
 - Your solution must improve overall value versus ad buying options that are already available.
