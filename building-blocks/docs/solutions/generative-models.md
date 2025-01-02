@@ -36,15 +36,6 @@ Generative Models is a solution for creating new content that matches the patter
 - Variational Autoencoders
 - Transformer architectures
 - Neural style transfer
-<!--
-
-## Tools
-
-- [Stable Diffusion](../tools/stable-diffusion) - Open-source image generation
-- [DALL-E](../tools/dall-e) - Text-to-image generation
-- [Midjourney](../tools/midjourney) - AI art generation
-- [RunwayML](../tools/runwayml) - Creative AI tools
-- [DreamStudio](../tools/dreamstudio) - AI image creation platform -->
 
 ## Related Solutions
 

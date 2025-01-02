@@ -36,15 +36,6 @@ Program Synthesis is a solution for automatically generating code that meets spe
 - Symbolic execution
 - Program analysis
 - Neural code generation
-<!--
-
-## Tools
-
-- [GitHub Copilot](../tools/github-copilot) - AI pair programmer
-- [Amazon CodeWhisperer](../tools/codewhisperer) - ML code generator
-- [Tabnine](../tools/tabnine) - AI code completion
-- [Kite](../tools/kite) - AI coding assistant
-- [Replit Ghost](../tools/replit-ghost) - AI code generation -->
 
 ## Related Solutions
 

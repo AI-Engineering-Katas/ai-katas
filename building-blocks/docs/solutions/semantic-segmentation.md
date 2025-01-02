@@ -36,15 +36,6 @@ Semantic Segmentation is a solution for partitioning and classifying regions of 
 - Transformer models
 - Point cloud segmentation
 - Deep learning encoders/decoders
-<!--
-
-## Tools
-
-- [Detectron2](../tools/detectron2) - Vision modeling framework
-- [MMSegmentation](../tools/mmsegmentation) - Segmentation toolbox
-- [PointNet++](../tools/pointnet) - 3D segmentation framework
-- [DeepLab](../tools/deeplab) - Semantic segmentation models
-- [Segment Anything](../tools/segment-anything) - Foundation model for segmentation -->
 
 ## Related Solutions
 

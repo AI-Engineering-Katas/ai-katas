@@ -36,15 +36,6 @@ Image Classification is a solution for categorizing and labeling images into pre
 - ResNet architectures
 - Feature extraction
 - Ensemble models
-<!--
-
-## Tools
-
-- [TensorFlow Vision](../tools/tensorflow-vision) - Vision ML framework
-- [PyTorch Vision](../tools/torchvision) - Computer vision library
-- [Google Cloud Vision](../tools/cloud-vision) - Cloud vision API
-- [Azure Computer Vision](../tools/azure-vision) - Vision services
-- [Clarifai](../tools/clarifai) - Visual recognition platform -->
 
 ## Related Solutions
 

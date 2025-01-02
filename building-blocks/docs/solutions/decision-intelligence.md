@@ -36,15 +36,6 @@ Decision Intelligence is a solution that combines data science, decision theory,
 - Monte Carlo simulation
 - Optimization algorithms
 - Causal inference
-<!--
-
-## Tools
-
-- [Google Vertex AI](../tools/vertex-ai) - ML-powered decision platform
-- [H2O.ai](../tools/h2o-ai) - AutoML decision support
-- [DataRobot](../tools/datarobot) - Enterprise AI platform
-- [RapidMiner](../tools/rapidminer) - Decision analytics platform
-- [Palantir](../tools/palantir) - Enterprise decision support -->
 
 ## Related Solutions
 

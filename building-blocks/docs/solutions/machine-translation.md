@@ -36,15 +36,6 @@ Machine Translation is a solution for automatically translating text or speech f
 - Parallel corpora
 - Beam search
 - Transfer learning
-<!--
-
-## Tools
-
-- [Google Translate](../tools/google-translate) - Translation service
-- [OpenNMT](../tools/opennmt) - Translation toolkit
-- [Marian NMT](../tools/marian) - Translation framework
-- [DeepL](../tools/deepl) - Neural translation
-- [ModernMT](../tools/modernmt) - Adaptive translation -->
 
 ## Related Solutions
 

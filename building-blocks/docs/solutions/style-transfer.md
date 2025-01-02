@@ -36,15 +36,6 @@ Style Transfer is a solution for transforming the visual style of images while p
 - AdaIN networks
 - Gram matrices
 - Feature extraction
-<!--
-
-## Tools
-
-- [Neural Style TF](../tools/neural-style-tf) - TensorFlow implementation
-- [Fast.ai Style](../tools/fastai-style) - Style transfer toolkit
-- [DeepArt](../tools/deepart) - Online style transfer service
-- [Prisma](../tools/prisma) - Mobile style transfer app
-- [StyleGAN](../tools/stylegan) - Style-based generation -->
 
 ## Related Solutions
 

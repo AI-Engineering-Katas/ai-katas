@@ -36,15 +36,6 @@ Predictive Analytics is a solution for forecasting future outcomes using statist
 - Deep learning
 - Bayesian inference
 - Ensemble methods
-<!--
-
-## Tools
-
-- [Prophet](../tools/prophet) - Time series forecasting
-- [Azure Forecasting](../tools/azure-forecasting) - Cloud forecasting service
-- [Amazon Forecast](../tools/amazon-forecast) - ML forecasting platform
-- [Tableau](../tools/tableau) - Business analytics platform
-- [Power BI](../tools/power-bi) - Business intelligence suite -->
 
 ## Related Solutions
 

@@ -36,15 +36,6 @@ Vector Databases is a solution for efficiently storing, indexing, and searching 
 - HNSW indexing
 - Vector quantization
 - Distance metrics
-<!--
-
-## Tools
-
-- [Milvus](../tools/milvus) - Vector database platform
-- [Pinecone](../tools/pinecone) - Vector search service
-- [Weaviate](../tools/weaviate) - Vector search engine
-- [Qdrant](../tools/qdrant) - Vector similarity engine
-- [FAISS](../tools/faiss) - Similarity search library -->
 
 ## Related Solutions
 

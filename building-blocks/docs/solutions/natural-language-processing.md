@@ -36,15 +36,6 @@ Natural Language Processing is a solution for analyzing, understanding, and extr
 - Word embeddings
 - Dependency parsing
 - Semantic analysis
-<!--
-
-## Tools
-
-- [spaCy](../tools/spacy) - Industrial NLP library
-- [NLTK](../tools/nltk) - NLP toolkit
-- [Stanford NLP](../tools/stanford-nlp) - NLP framework
-- [Azure Language](../tools/azure-language) - Cloud NLP service
-- [Amazon Comprehend](../tools/comprehend) - NLP service -->
 
 ## Related Solutions
 

@@ -37,14 +37,6 @@ Language Modeling is a solution for understanding and generating human language 
 - Transfer learning
 - Fine-tuning methods
 
-## Tools
-
-- [OpenAI GPT](../tools/gpt) - Large language model
-- [Hugging Face](../tools/hugging-face) - NLP platform
-- [Claude](../tools/claude) - Language model
-- [LLaMA](../tools/llama) - Open language model
-- [Cohere](../tools/cohere) - Language AI platform
-
 ## Related Solutions
 
 - [Text Generation](./text-generation)

@@ -36,15 +36,6 @@ Multi-class Classification is a solution for categorizing data points into three
 - Neural Networks
 - Gradient Boosting
 - Ensemble Methods
-<!--
-
-## Tools
-
-- [scikit-learn](../tools/scikit-learn) - ML classification library
-- [XGBoost](../tools/xgboost) - Gradient boosting framework
-- [LightGBM](../tools/lightgbm) - Gradient boosting library
-- [FastAI](../tools/fastai) - Deep learning library
-- [Keras](../tools/keras) - Neural network framework -->
 
 ## Related Solutions
 

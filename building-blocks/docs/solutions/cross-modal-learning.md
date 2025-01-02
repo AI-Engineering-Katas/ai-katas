@@ -37,15 +37,6 @@ Cross-Modal Learning is a solution for understanding and processing relationship
 - Fusion networks
 - Contrastive learning
 
-## Tools
-
-<!--
-- [Hugging Face](../tools/hugging-face) - Multi-modal models
-- [CLIP](../tools/clip) - Vision-language models
-- [MMF](../tools/mmf) - Multi-modal framework
-- [AllenNLP](../tools/allennlp) - Multi-modal research platform
-- [Jina AI](../tools/jina) - Multi-modal neural search -->
-
 ## Related Solutions
 
 - [Neural Search](./neural-search)

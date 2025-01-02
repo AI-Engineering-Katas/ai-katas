@@ -36,15 +36,6 @@ Real-time Analytics is a solution for processing and analyzing data streams as t
 - Time-window analysis
 - In-memory computing
 - Message queuing
-<!--
-
-## Tools
-
-- [Apache Kafka](../tools/kafka) - Stream processing
-- [Apache Flink](../tools/flink) - Stream analytics
-- [Spark Streaming](../tools/spark-streaming) - Real-time processing
-- [Elasticsearch](../tools/elasticsearch) - Real-time search
-- [Grafana](../tools/grafana) - Real-time visualization -->
 
 ## Related Solutions
 

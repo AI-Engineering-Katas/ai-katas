@@ -36,15 +36,6 @@ Speech Recognition is a solution for converting spoken language into text using 
 - Acoustic modeling
 - Language modeling
 - Signal processing
-<!--
-
-## Tools
-
-- [Google Speech-to-Text](../tools/google-speech) - Cloud speech recognition
-- [AWS Transcribe](../tools/aws-transcribe) - Automatic speech recognition
-- [Mozilla DeepSpeech](../tools/deepspeech) - Open-source STT engine
-- [Whisper](../tools/whisper) - OpenAI's speech recognition model
-- [Speechmatics](../tools/speechmatics) - Enterprise speech recognition -->
 
 ## Related Solutions
 

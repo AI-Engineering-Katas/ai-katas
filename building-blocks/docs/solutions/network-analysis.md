@@ -36,15 +36,6 @@ Network Analysis is a solution for discovering and analyzing patterns, relations
 - Graph neural networks
 - Graph databases
 - Spectral clustering
-<!--
-
-## Tools
-
-- [Neo4j](../tools/neo4j) - Graph database platform
-- [NetworkX](../tools/networkx) - Network analysis library
-- [Gephi](../tools/gephi) - Network visualization
-- [DGL](../tools/dgl) - Deep graph library
-- [GraphQL](../tools/graphql) - Graph query language -->
 
 ## Related Solutions
 

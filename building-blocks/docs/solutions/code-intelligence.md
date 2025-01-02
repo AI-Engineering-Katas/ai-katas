@@ -38,15 +38,6 @@ Code Intelligence is a solution for analyzing and understanding code structure, 
 - Control flow analysis
 - Program slicing
 - Semantic graphs
-<!--
-
-## Tools
-
-- [Sourcegraph](../tools/sourcegraph) - Code intelligence platform
-- [SonarLint](../tools/sonarlint) - IDE code intelligence
-- [Kite](../tools/kite) - Code completion engine
-- [TabNine](../tools/tabnine) - Code intelligence assistant
-- [CodeQL](../tools/codeql) - Code analysis engine -->
 
 ## Related Solutions
 

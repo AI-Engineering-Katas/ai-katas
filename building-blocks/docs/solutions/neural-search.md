@@ -36,15 +36,6 @@ Neural Search is a solution for semantic search and retrieval using neural netwo
 - ANN algorithms
 - Vector quantization
 - Cross-encoders
-<!--
-
-## Tools
-
-- [Jina](../tools/jina) - Neural search framework
-- [Vespa](../tools/vespa) - Search engine
-- [Weaviate](../tools/weaviate) - Vector search engine
-- [OpenSearch](../tools/opensearch) - Search platform
-- [Milvus](../tools/milvus) - Vector database -->
 
 ## Related Solutions
 

@@ -36,15 +36,6 @@ Pattern Mining is a solution for discovering recurring structures, associations,
 - Sequential pattern mining
 - Subgraph mining
 - Pattern matching
-<!--
-
-## Tools
-
-- [SPMF](../tools/spmf) - Pattern mining library
-- [MLxtend](../tools/mlxtend) - Association analysis
-- [RapidMiner](../tools/rapidminer) - Pattern discovery platform
-- [WEKA](../tools/weka) - Data mining toolkit
-- [Orange](../tools/orange) - Data mining framework -->
 
 ## Related Solutions
 

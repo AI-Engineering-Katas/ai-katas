@@ -36,15 +36,6 @@ Speech Synthesis is a solution for converting text into natural-sounding speech 
 - WaveNet architectures
 - Attention mechanisms
 - Mel-spectrogram generation
-<!--
-
-## Tools
-
-- [Amazon Polly](../tools/amazon-polly) - Cloud-based text-to-speech service
-- [Google Cloud TTS](../tools/google-cloud-tts) - Neural text-to-speech platform
-- [Mozilla TTS](../tools/mozilla-tts) - Open-source speech synthesis toolkit
-- [Coqui TTS](../tools/coqui-tts) - Deep learning toolkit for TTS
-- [Azure Speech Service](../tools/azure-speech) - Cloud speech synthesis platform -->
 
 ## Related Solutions
 

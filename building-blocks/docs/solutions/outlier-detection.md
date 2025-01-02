@@ -36,15 +36,6 @@ Outlier Detection is a solution for identifying anomalous data points, patterns,
 - Autoencoders
 - One-class SVM
 - Density estimation
-<!--
-
-## Tools
-
-- [PyOD](../tools/pyod) - Outlier detection toolkit
-- [Alibi Detect](../tools/alibi-detect) - Outlier detection library
-- [Numenta](../tools/numenta) - Anomaly detection platform
-- [AWS Lookout](../tools/aws-lookout) - Anomaly detection service
-- [Azure Anomaly Detector](../tools/azure-anomaly-detector) - Cloud anomaly detection -->
 
 ## Related Solutions
 

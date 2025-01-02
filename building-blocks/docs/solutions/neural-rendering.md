@@ -36,15 +36,6 @@ Neural Rendering is a solution that combines traditional computer graphics with 
 - Implicit neural representations
 - Neural scene representations
 - Deep generative models
-<!--
-
-## Tools
-
-- [Nvidia Instant NeRF](../tools/instant-nerf) - Real-time neural rendering framework
-- [Google Nerfies](../tools/nerfies) - Dynamic neural rendering
-- [NVIDIA Kaolin](../tools/kaolin) - 3D deep learning library
-- [Neural Render](../tools/neural-render) - PyTorch-based rendering toolkit
-- [Meshroom](../tools/meshroom) - Photogrammetry software -->
 
 ## Related Solutions
 

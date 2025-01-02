@@ -37,15 +37,6 @@ Content-based Filtering is a solution for making personalized recommendations by
 - TF-IDF
 - Neural encoders
 
-## Tools
-
-<!--
-- [Surprise](../tools/surprise) - Recommendation library
-- [LightFM](../tools/lightfm) - Hybrid recommender
-- [Elasticsearch](../tools/elasticsearch) - Search and recommendations
-- [Annoy](../tools/annoy) - Similarity search
-- [Gensim](../tools/gensim) - Topic modeling and similarity -->
-
 ## Related Solutions
 
 - [Collaborative Filtering](./collaborative-filtering)

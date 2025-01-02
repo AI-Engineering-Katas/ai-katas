@@ -36,15 +36,6 @@ Named Entity Recognition is a solution for identifying and classifying named ent
 - Neural sequence models
 - Token classification
 - Transfer learning
-<!--
-
-## Tools
-
-- [spaCy NER](../tools/spacy-ner) - Industrial NER system
-- [Stanford NER](../tools/stanford-ner) - Research NER toolkit
-- [Stanza](../tools/stanza) - NLP toolkit with NER
-- [Flair](../tools/flair) - State-of-the-art NER
-- [Amazon Comprehend](../tools/comprehend) - Cloud NER service -->
 
 ## Related Solutions
 

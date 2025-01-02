@@ -36,15 +36,6 @@ Sequential Modeling is a solution for analyzing and predicting patterns in order
 - Temporal CNNs
 - State Space Models
 - Hidden Markov Models
-<!--
-
-## Tools
-
-- [Prophet](../tools/prophet) - Forecasting library
-- [Darts](../tools/darts) - Time series library
-- [GluonTS](../tools/gluonts) - Time series toolkit
-- [Statsmodels](../tools/statsmodels) - Statistical modeling
-- [Pytorch Forecasting](../tools/pytorch-forecasting) - Deep learning forecasting -->
 
 ## Related Solutions
 

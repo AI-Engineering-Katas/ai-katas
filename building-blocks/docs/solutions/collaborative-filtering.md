@@ -36,15 +36,6 @@ Collaborative Filtering is a solution for making personalized recommendations ba
 - Neighborhood methods
 - Implicit feedback models
 - Hybrid recommenders
-<!--
-
-## Tools
-
-- [Surprise](../tools/surprise) - Recommender system library
-- [LightFM](../tools/lightfm) - Hybrid recommendation framework
-- [Amazon Personalize](../tools/amazon-personalize) - Recommendation service
-- [Implicit](../tools/implicit) - Fast collaborative filtering
-- [Spotlight](../tools/spotlight) - Deep recommender models -->
 
 ## Related Solutions
 

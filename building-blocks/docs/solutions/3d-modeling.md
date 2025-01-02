@@ -37,14 +37,6 @@ sidebar_label: 3D Modeling
 - Implicit surface modeling
 - Procedural generation algorithms
 
-<!-- ## Tools
-
-- [Blender](../tools/blender) - Open-source 3D creation suite
-- [Autodesk Maya](../tools/maya) - Professional 3D modeling software
-- [SketchUp](../tools/sketchup) - 3D modeling for architecture
-- [Houdini](../tools/houdini) - 3D procedural generation tool
-- [Cinema 4D](../tools/cinema-4d) - Motion graphics and visualization -->
-
 ## Related Solutions
 
 - [Neural Rendering](./neural-rendering)

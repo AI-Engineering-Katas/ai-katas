@@ -36,15 +36,6 @@ Audio Classification is a solution for categorizing and identifying different ty
 - Mel-frequency cepstrum
 - Wavelet transforms
 - Deep learning classifiers
-<!--
-
-## Tools
-
-- [librosa](../tools/librosa) - Audio analysis library
-- [Tensorflow Audio](../tools/tensorflow-audio) - Audio ML toolkit
-- [PyDub](../tools/pydub) - Audio processing library
-- [ESC-50](../tools/esc-50) - Environmental sound classification
-- [Torchaudio](../tools/torchaudio) - Audio processing tools -->
 
 ## Related Solutions
 

@@ -36,15 +36,6 @@ Computer Vision is a solution for enabling machines to understand and process vi
 - Semantic Segmentation
 - Instance Segmentation
 - Feature Detection
-<!--
-
-## Tools
-
-- [OpenCV](../tools/opencv) - Computer vision library
-- [TensorFlow Vision](../tools/tensorflow-vision) - ML vision framework
-- [Azure Computer Vision](../tools/azure-vision) - Cloud vision services
-- [Roboflow](../tools/roboflow) - Vision AI platform
-- [Clarifai](../tools/clarifai) - Computer vision API -->
 
 ## Related Solutions
 

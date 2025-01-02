@@ -36,15 +36,6 @@ Pattern Recognition is a solution for identifying and categorizing patterns in d
 - Random forests
 - Gradient boosting
 - Deep learning classifiers
-<!--
-
-## Tools
-
-- [scikit-learn](../tools/scikit-learn) - Machine learning library
-- [TensorFlow](../tools/tensorflow) - Deep learning framework
-- [FastAI](../tools/fastai) - Deep learning library
-- [AWS SageMaker](../tools/sagemaker) - ML platform
-- [Google AutoML](../tools/automl) - Automated machine learning -->
 
 ## Related Solutions
 

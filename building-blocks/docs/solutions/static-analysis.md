@@ -36,15 +36,6 @@ Static Analysis is a solution for examining code structure and behavior without 
 - Data flow analysis
 - Type inference
 - Pattern matching
-<!--
-
-## Tools
-
-- [SonarQube](../tools/sonarqube) - Code quality platform
-- [ESLint](../tools/eslint) - JavaScript linter
-- [CodeQL](../tools/codeql) - Code analysis engine
-- [Checkmarx](../tools/checkmarx) - Security testing platform
-- [PMD](../tools/pmd) - Static code analyzer -->
 
 ## Related Solutions
 

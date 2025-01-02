@@ -37,13 +37,6 @@ Sentiment Analysis is a solution for determining the emotional tone and subjecti
 - Aspect extraction
 - Contextual analysis
 
-<!-- ## Tools
-
-- [VADER](../tools/vader) - Rule-based sentiment analyzer
-- [TextBlob](../tools/textblob) - Simple sentiment analysis
-- [Azure Text Analytics](../tools/azure-text-analytics) - Cloud sentiment service
-- [IBM Watson](../tools/watson) - Enterprise sentiment analysis
-- [MonkeyLearn](../tools/monkeylearn) - Customizable sentiment models -->
 
 ## Related Solutions
 
