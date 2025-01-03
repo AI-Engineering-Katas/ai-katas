@@ -1,8 +1,6 @@
 # Capabilities
 
-This section covers the various capabilities of our tech solutions.
-
-## Available Capabilities
+Browse for one that aligns with your current goal.
 
 ### Understanding & Analysis
 

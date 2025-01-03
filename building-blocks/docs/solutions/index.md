@@ -1,38 +1,58 @@
 # Solutions
 
-Explore our AI solutions:
+## Understanding & Analysis
 
-- [3D Modeling](./3d-modeling.md)
-- [Audio Classification](./audio-classification.md)
-- [Autonomous Systems](./autonomous-systems.md)
-- [Code Intelligence](./code-intelligence.md)
-- [Collaborative Filtering](./collaborative-filtering.md)
-- [Computer Vision](./computer-vision.md)
-- [Content-based Filtering](./content-based-filtering.md)
-- [Cross-modal Learning](./cross-modal-learning.md)
-- [Decision Intelligence](./decision-intelligence.md)
-- [Generative Models](./generative-models.md)
-- [Image Classification](./image-classification.md)
-- [Language Modeling](./language-modeling.md)
-- [Machine Translation](./machine-translation.md)
-- [Multi-class Classification](./multi-class-classification.md)
-- [Named Entity Recognition](./named-entity-recognition.md)
-- [Natural Language Processing](./natural-language-processing.md)
-- [Network Analysis](./network-analysis.md)
-- [Neural Rendering](./neural-rendering.md)
-- [Neural Search](./neural-search.md)
-- [Object Detection](./object-detection.md)
-- [Outlier Detection](./outlier-detection.md)
-- [Pattern Mining](./pattern-mining.md)
-- [Pattern Recognition](./pattern-recognition.md)
-- [Predictive Analytics](./predictive-analytics.md)
-- [Program Synthesis](./program-synthesis.md)
-- [Real-time Analytics](./real-time-analytics.md)
-- [Semantic Segmentation](./semantic-segmentation.md)
-- [Sentiment Analysis](./sentiment-analysis.md)
-- [Sequential Modeling](./sequential-modeling.md)
-- [Speech Recognition](./speech-recognition.md)
-- [Speech Synthesis](./speech-synthesis.md)
-- [Static Analysis](./static-analysis.md)
-- [Style Transfer](./style-transfer.md)
-- [Vector Databases](./vector-databases.md)
+### Perception & Recognition
+
+- [Computer Vision](./computer-vision)
+- [Image Classification](./image-classification)
+- [Object Detection](./object-detection)
+- [Speech Recognition](./speech-recognition)
+- [Audio Classification](./audio-classification)
+
+### Semantic Understanding
+
+- [Semantic Segmentation](./semantic-segmentation)
+- [Natural Language Processing](./natural-language-processing)
+- [Named Entity Recognition](./named-entity-recognition)
+- [Sentiment Analysis](./sentiment-analysis)
+- [Code Intelligence](./code-intelligence)
+- [Static Analysis](./static-analysis)
+- [Cross-modal Learning](./cross-modal-learning)
+
+## Generation & Synthesis
+
+### Content Creation
+
+- [3D Modeling](./3d-modeling)
+- [Neural Rendering](./neural-rendering)
+- [Speech Synthesis](./speech-synthesis)
+- [Language Modeling](./language-modeling)
+- [Generative Models](./generative-models)
+
+### Content Transformation
+
+- [Style Transfer](./style-transfer)
+- [Machine Translation](./machine-translation)
+- [Program Synthesis](./program-synthesis)
+
+## Intelligence & Decision Making
+
+### Pattern Analysis & Learning
+
+- [Pattern Mining](./pattern-mining)
+- [Pattern Recognition](./pattern-recognition)
+- [Outlier Detection](./outlier-detection)
+- [Multi-class Classification](./multi-class-classification)
+- [Network Analysis](./network-analysis)
+- [Sequential Modeling](./sequential-modeling)
+- [Vector Databases](./vector-databases)
+
+### Intelligent Systems
+
+- [Autonomous Systems](./autonomous-systems)
+- [Decision Intelligence](./decision-intelligence)
+- [Predictive Analytics](./predictive-analytics)
+- [Real-time Analytics](./real-time-analytics)
+- [Collaborative Filtering](./collaborative-filtering)
+- [Content-based Filtering](./content-based-filtering)
