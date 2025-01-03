@@ -37,6 +37,13 @@ Pattern Recognition is a solution for identifying and categorizing patterns in d
 - Gradient boosting
 - Deep learning classifiers
 
+## Implementation Tools
+
+For efficient pattern matching and similarity computations:
+
+- [Vector Similarity Search](../tools/vector-similarity-search)
+- [Vector Databases](../tools/vector-databases)
+
 ## Related Solutions
 
 - [Multi-class Classification](./multi-class-classification)

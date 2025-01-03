@@ -1,30 +1,35 @@
 const sidebars = {
-  mainSidebar: [
+  docs: [
+    "index",
     {
       type: "category",
-      label: "Abstract Capabilities",
+      label: "Gameplay",
       items: [
-        "capabilities/3d-scene-understanding",
-        // "capabilities/computer-vision",
-        // "capabilities/natural-language-processing",
+        // Add your gameplay related pages here
       ],
     },
     {
       type: "category",
-      label: "Solution Fields",
+      label: "Capabilities",
       items: [
-        "solutions/object-detection",
-        // "solutions/semantic-segmentation",
-        // "solutions/text-analysis",
+        "capabilities/index",
+        // ... other capability items
       ],
     },
     {
       type: "category",
-      label: "Commercial Tools",
+      label: "Solutions",
       items: [
-        "tools/tool-x",
-        // "tools/tool-y",
-        //  "tools/tool-z"
+        "solutions/index",
+        // ... other solution items
+      ],
+    },
+    {
+      type: "category",
+      label: "Tools",
+      items: [
+        "tools/index",
+        // ... other tool items
       ],
     },
   ],

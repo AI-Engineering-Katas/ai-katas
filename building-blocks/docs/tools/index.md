@@ -1,3 +1,8 @@
+---
+pagination_prev: null
+pagination_next: null
+---
+
 # Tools
 
 Commercially licensed tools that you can slot in to your AI system design. \
@@ -18,4 +23,5 @@ They all have tradeoffs and limitations, along the lines of any regular software
 
 Available tools and utilities:
 
-- [Tool X](./tool-x.md)
+- [Vector Databases](./vector-databases.md)
+- [Vector Similarity Search](./vector-similarity-search.md)

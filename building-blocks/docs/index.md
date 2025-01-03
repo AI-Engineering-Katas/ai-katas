@@ -1,3 +1,8 @@
+---
+pagination_prev: null
+pagination_next: null
+---
+
 # Gameplay
 
 1. Browse [Capabilities](./capabilities/index.md) for one that aligns with your current goal

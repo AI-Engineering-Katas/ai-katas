@@ -15,17 +15,21 @@ const config = {
     [
       "classic",
       {
-        docs: {
-          // sidebarPath: "./sidebars.js",
-          routeBasePath: "/",
-          sidebarCollapsed: true,
-          sidebarCollapsible: true,
-          // sidebar_hide_name: true,
-          // hideSidebar: true,
-        },
+        docs: false,
         theme: {
           customCss: "./src/css/custom.css",
         },
+      },
+    ],
+  ],
+
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        routeBasePath: "/",
+        sidebarCollapsed: true,
+        sidebarCollapsible: true,
       },
     ],
   ],

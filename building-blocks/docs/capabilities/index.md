@@ -1,3 +1,8 @@
+---
+pagination_prev: null
+pagination_next: null
+---
+
 # Capabilities
 
 Browse for one that aligns with your current goal.
@@ -10,6 +15,7 @@ Browse for one that aligns with your current goal.
 - [Code Understanding](./code-understanding) - Software code analysis and comprehension
 - [3D Scene Understanding](./3d-scene-understanding) - Advanced 3D scene analysis and interpretation
 - [Multi-Modal Understanding](./multi-modal-understanding) - Cross-modal data analysis and comprehension
+- [Information Retrieval](./information-retrieval) - Efficient storage and retrieval of information from large datasets
 
 ### Generation & Synthesis
 
@@ -27,4 +33,3 @@ Browse for one that aligns with your current goal.
 - [Classification](./classification) - Data categorization and pattern recognition
 - [Forecasting](./forecasting) - Time series analysis and future prediction
 - [Recommendation](./recommendation) - Personalized item and action suggestions
-- [Similarity Search](./similarity-search) - Vector-based similarity search and embedding storage
