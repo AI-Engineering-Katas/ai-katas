@@ -40,4 +40,3 @@ Vector Databases is a solution for efficiently storing, indexing, and searching 
 ## Related Solutions
 
 - [Neural Search](./neural-search)
-- [Embedding Storage](./embedding-storage)

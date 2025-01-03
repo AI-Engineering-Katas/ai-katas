@@ -40,4 +40,3 @@ Audio Classification is a solution for categorizing and identifying different ty
 ## Related Solutions
 
 - [Speech Recognition](./speech-recognition)
-- [Music Information Retrieval](./music-information-retrieval)

@@ -38,6 +38,3 @@ Real-time Analytics is a solution for processing and analyzing data streams as t
 - Message queuing
 
 ## Related Solutions
-
-- [Event Processing](./event-processing)
-- [Stream Processing](./stream-processing)

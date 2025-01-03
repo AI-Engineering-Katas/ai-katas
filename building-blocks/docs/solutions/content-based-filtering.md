@@ -40,4 +40,4 @@ Content-based Filtering is a solution for making personalized recommendations by
 ## Related Solutions
 
 - [Collaborative Filtering](./collaborative-filtering)
-- [Vector Search](./vector-search)
+- [Neural Search](./neural-search)

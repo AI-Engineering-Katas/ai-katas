@@ -40,4 +40,4 @@ Cross-Modal Learning is a solution for understanding and processing relationship
 ## Related Solutions
 
 - [Neural Search](./neural-search)
-- [Multi-modal Fusion](./multi-modal-fusion)
+- [Computer Vision](./computer-vision)

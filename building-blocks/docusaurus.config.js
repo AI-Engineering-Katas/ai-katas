@@ -3,13 +3,13 @@ import { themes as prismThemes } from "prism-react-renderer";
 const config = {
   title: "AI Building Blocks",
   tagline: "Compendium of capabilities, solutions, and tools",
-  url: "https://ai-kata-blocks.com",
-  baseUrl: "/docs/",
+  url: "https://ai-katas.com",
+  baseUrl: "/ai-katas/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "your-org",
-  projectName: "ai-kata-blocks",
+  organizationName: "AI-Engineering-Katas",
+  projectName: "ai-katas",
 
   presets: [
     [
@@ -122,14 +122,6 @@ const config = {
             {
               label: "3D Modeling",
               to: "solutions/3d-modeling",
-            },
-            {
-              label: "Computer Graphics",
-              to: "solutions/computer-graphics",
-            },
-            {
-              label: "Instance Segmentation",
-              to: "solutions/instance-segmentation",
             },
             {
               label: "Neural Rendering",

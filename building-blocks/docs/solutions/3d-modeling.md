@@ -40,4 +40,3 @@ sidebar_label: 3D Modeling
 ## Related Solutions
 
 - [Neural Rendering](./neural-rendering)
-- [Computer Graphics](./computer-graphics)

@@ -8,10 +8,11 @@ sidebar_label: Object Detection
 
 Object Detection is a computer vision technique that identifies and locates objects within images or video streams.
 
-## Related Commercial Tools
+## Related Solutions
 
-- [Tool X](../tools/tool-x)
-- [Tool Y](../tools/tool-y)
+- [Computer Vision](./computer-vision)
+- [Image Classification](./image-classification)
+- [Semantic Segmentation](./semantic-segmentation)
 
 ## Features
 

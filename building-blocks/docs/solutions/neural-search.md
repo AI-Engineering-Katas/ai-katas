@@ -40,4 +40,3 @@ Neural Search is a solution for semantic search and retrieval using neural netwo
 ## Related Solutions
 
 - [Vector Databases](./vector-databases)
-- [Information Retrieval](./information-retrieval)

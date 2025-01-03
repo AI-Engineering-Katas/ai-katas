@@ -40,4 +40,3 @@ Style Transfer is a solution for transforming the visual style of images while p
 ## Related Solutions
 
 - [Generative Models](./generative-models)
-- [Image-to-Image Translation](./image-to-image-translation)

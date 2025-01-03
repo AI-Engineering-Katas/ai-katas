@@ -38,6 +38,3 @@ Predictive Analytics is a solution for forecasting future outcomes using statist
 - Ensemble methods
 
 ## Related Solutions
-
-- [Time Series Analysis](./time-series-analysis)
-- [Business Intelligence](./business-intelligence)

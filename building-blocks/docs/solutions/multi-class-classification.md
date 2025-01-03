@@ -40,4 +40,4 @@ Multi-class Classification is a solution for categorizing data points into three
 ## Related Solutions
 
 - [Pattern Recognition](./pattern-recognition)
-- [Binary Classification](./binary-classification)
+- [Image Classification](./image-classification)

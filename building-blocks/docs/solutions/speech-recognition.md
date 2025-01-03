@@ -40,4 +40,3 @@ Speech Recognition is a solution for converting spoken language into text using 
 ## Related Solutions
 
 - [Audio Classification](./audio-classification)
-- [Language Processing](./language-processing)

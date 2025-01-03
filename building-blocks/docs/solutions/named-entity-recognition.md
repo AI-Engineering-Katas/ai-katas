@@ -39,5 +39,4 @@ Named Entity Recognition is a solution for identifying and classifying named ent
 
 ## Related Solutions
 
-- [Information Extraction](./information-extraction)
 - [Natural Language Processing](./natural-language-processing)

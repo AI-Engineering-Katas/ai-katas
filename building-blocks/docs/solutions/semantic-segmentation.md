@@ -39,5 +39,4 @@ Semantic Segmentation is a solution for partitioning and classifying regions of 
 
 ## Related Solutions
 
-- [Instance Segmentation](./instance-segmentation)
 - [Object Detection](./object-detection)

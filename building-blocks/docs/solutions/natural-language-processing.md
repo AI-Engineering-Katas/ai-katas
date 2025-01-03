@@ -39,5 +39,5 @@ Natural Language Processing is a solution for analyzing, understanding, and extr
 
 ## Related Solutions
 
-- [Information Extraction](./information-extraction)
-- [Text Analytics](./text-analytics)
+- [Named Entity Recognition](./named-entity-recognition)
+- [Language Modeling](./language-modeling)

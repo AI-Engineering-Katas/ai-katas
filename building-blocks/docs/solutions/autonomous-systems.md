@@ -40,4 +40,3 @@ Autonomous Systems is a solution for creating self-operating agents that can lea
 ## Related Solutions
 
 - [Robotics Control](./robotics-control)
-- [Game AI](./game-ai)

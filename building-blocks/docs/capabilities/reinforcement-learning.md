@@ -8,11 +8,6 @@ sidebar_label: Reinforcement Learning
 
 Reinforcement Learning is the capability to train agents to make sequential decisions through interaction with an environment.
 
-## Related Solution Fields
-
-- [Decision Making](../solutions/decision-making)
-- [Policy Learning](../solutions/policy-learning)
-
 ## Overview
 
 Reinforcement Learning enables systems to:

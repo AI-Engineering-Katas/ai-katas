@@ -40,4 +40,3 @@ Collaborative Filtering is a solution for making personalized recommendations ba
 ## Related Solutions
 
 - [Content-based Filtering](./content-based-filtering)
-- [Hybrid Recommenders](./hybrid-recommenders)

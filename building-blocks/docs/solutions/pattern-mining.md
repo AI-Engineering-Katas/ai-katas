@@ -39,5 +39,4 @@ Pattern Mining is a solution for discovering recurring structures, associations,
 
 ## Related Solutions
 
-- [Association Analysis](./association-analysis)
 - [Network Analysis](./network-analysis)

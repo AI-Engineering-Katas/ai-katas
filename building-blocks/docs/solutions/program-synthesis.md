@@ -39,5 +39,4 @@ Program Synthesis is a solution for automatically generating code that meets spe
 
 ## Related Solutions
 
-- [Code Completion](./code-completion)
 - [Static Analysis](./static-analysis)

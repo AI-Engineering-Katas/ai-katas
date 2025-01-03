@@ -10,7 +10,6 @@ Unexpected Event Detection is the capability to identify and respond to unusual 
 
 ## Related Solution Fields
 
-- [Event Processing](../solutions/event-processing)
 - [Real-time Analytics](../solutions/real-time-analytics)
 - [Outlier Detection](../solutions/outlier-detection)
 

@@ -38,6 +38,3 @@ Speech Synthesis is a solution for converting text into natural-sounding speech 
 - Mel-spectrogram generation
 
 ## Related Solutions
-
-- [Music Generation](./music-generation)
-- [Voice Processing](./voice-processing)

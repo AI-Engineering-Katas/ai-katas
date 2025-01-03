@@ -40,4 +40,4 @@ Decision Intelligence is a solution that combines data science, decision theory,
 ## Related Solutions
 
 - [Predictive Analytics](./predictive-analytics)
-- [Optimization](./optimization)
+- [Autonomous Systems](./autonomous-systems)

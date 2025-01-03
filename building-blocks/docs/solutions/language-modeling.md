@@ -39,5 +39,4 @@ Language Modeling is a solution for understanding and generating human language 
 
 ## Related Solutions
 
-- [Text Generation](./text-generation)
 - [Machine Translation](./machine-translation)

@@ -39,5 +39,4 @@ Outlier Detection is a solution for identifying anomalous data points, patterns,
 
 ## Related Solutions
 
-- [Anomaly Detection](./anomaly-detection)
 - [Real-time Analytics](./real-time-analytics)

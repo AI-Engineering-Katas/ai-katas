@@ -40,4 +40,3 @@ Pattern Recognition is a solution for identifying and categorizing patterns in d
 ## Related Solutions
 
 - [Multi-class Classification](./multi-class-classification)
-- [Feature Engineering](./feature-engineering)
