@@ -46,6 +46,11 @@ Cross-lingual Understanding is a solution for processing and analyzing content a
 - Zero-shot learning
 - Language bridging
 
+## Tools
+
+- [Text Analytics APIs](../tools/text-analytics-apis)
+- [NLP Frameworks](../tools/nlp-frameworks)
+
 ## Related Solutions
 
 - [Machine Translation](./machine-translation)

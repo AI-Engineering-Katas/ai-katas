@@ -41,3 +41,10 @@ Multi-class Classification is a solution for categorizing data points into three
 
 - [Pattern Recognition](./pattern-recognition)
 - [Image Classification](./image-classification)
+
+## Tools
+
+- [Machine Learning Libraries](../tools/machine-learning-libraries)
+- [Deep Learning Frameworks](../tools/deep-learning-frameworks)
+- [Text Classification Tools](../tools/text-classification-tools)
+- [Image Classification Tools](../tools/image-classification-tools)

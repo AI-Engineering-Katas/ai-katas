@@ -40,3 +40,10 @@ Sequential Modeling is a solution for analyzing and predicting patterns in order
 ## Related Solutions
 
 - [Predictive Analytics](./predictive-analytics)
+
+## Tools
+
+- [Time Series Libraries](../tools/time-series-libraries)
+- [Forecasting Frameworks](../tools/forecasting-frameworks)
+- [Statistical Analysis Tools](../tools/statistical-analysis-tools)
+- [Predictive Modeling Platforms](../tools/predictive-modeling-platforms)

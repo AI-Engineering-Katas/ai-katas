@@ -38,6 +38,7 @@ For implementing similarity search, consider these tools:
 
 - [Vector Databases](../tools/vector-databases)
 - [Vector Similarity Search](../tools/vector-similarity-search)
+- [Search Engines](../tools/search-engines)
 
 ## Best Practices
 

@@ -37,6 +37,14 @@ Natural Language Processing is a solution for analyzing, understanding, and extr
 - Dependency parsing
 - Semantic analysis
 
+## Tools
+
+- [Text Analytics APIs](../tools/text-analytics-apis)
+- [NLP Frameworks](../tools/nlp-frameworks)
+- [Search Engines](../tools/search-engines)
+- [Document Retrieval Systems](../tools/document-retrieval-systems)
+- [Knowledge Base Systems](../tools/knowledge-base-systems)
+
 ## Related Solutions
 
 - [Named Entity Recognition](./named-entity-recognition)

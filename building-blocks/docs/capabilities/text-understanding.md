@@ -13,6 +13,11 @@ Text Understanding is the capability to comprehend, analyze, and extract meaning
 - [Named Entity Recognition](../solutions/named-entity-recognition)
 - [Sentiment Analysis](../solutions/sentiment-analysis)
 
+## Implementation Tools
+
+- [Text Analytics APIs](../tools/text-analytics-apis)
+- [NLP Frameworks](../tools/nlp-frameworks)
+
 ## Overview
 
 Text Understanding enables systems to:

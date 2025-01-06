@@ -5,17 +5,16 @@ class: "text-center"
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## AI Capabilities & Tools
+  ## AI Capabilities
   A practical guide for developers on when to use different AI technologies.
 drawings:
   persist: false
 css: unocss
 ---
 
-# AI Capabilities & Tools
+# AI Capabilities
 
-## A Developer's Guide to Making Smart Choices
-
+## AI Kata Primer
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
     Press Space for next page <carbon:arrow-right class="inline"/>

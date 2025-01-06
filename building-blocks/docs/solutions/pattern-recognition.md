@@ -47,3 +47,9 @@ For efficient pattern matching and similarity computations:
 ## Related Solutions
 
 - [Multi-class Classification](./multi-class-classification)
+
+## Tools
+
+- [Machine Learning Libraries](../tools/machine-learning-libraries)
+- [Deep Learning Frameworks](../tools/deep-learning-frameworks)
+- [Image Classification Tools](../tools/image-classification-tools)

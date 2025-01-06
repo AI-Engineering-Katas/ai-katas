@@ -37,6 +37,11 @@ Sentiment Analysis is a solution for determining the emotional tone and subjecti
 - Aspect extraction
 - Contextual analysis
 
+## Tools
+
+- [Text Analytics APIs](../tools/text-analytics-apis)
+- [NLP Frameworks](../tools/nlp-frameworks)
+
 ## Related Solutions
 
 - [Natural Language Processing](./natural-language-processing)
