@@ -68,3 +68,19 @@
 ### Reference
 
 - [AI Building Blocks](https://ai-engineering-katas.github.io/ai-katas/)
+
+# Pre-reqs
+
+Please bring a laptop, a notebook, and something to write with to the workshop. It is not necessary for you to review any of the materials below before the workshop. That said, reviewing them will probably improve your experience.
+
+You will use this docusaurus site and ChatGPT/Claude a learning tool reference during the workshop:[AI Building Blocks](https://ai-engineering-katas.github.io/ai-katas/)
+
+If you want to get a head start, I encourage you to indulge in a depth-first exploration by selecting a Capability, reviewing its Solutions, and then visiting the Solutions' associated Tools. Consult ChatGPT/Claude when you want to test your understanding or you want to ask a question that connects the content in the site to an idea you have.
+
+More resources:
+
+- [Workshop Rules](https://github.com/AI-Engineering-Katas/ai-katas/blob/main/rules.md)
+- [Workshop Schedule](https://github.com/AI-Engineering-Katas/ai-katas/blob/main/workshopSequence.md)
+- [AI Kata GitHub](https://github.com/AI-Engineering-Katas/ai-katas/)
+- [GenAI Capabilities Worksheet](https://github.com/AI-Engineering-Katas/ai-katas/blob/main/genai-capabilities-cheatsheet.md)
+- [GenAI Capability Combo Worksheet](https://github.com/AI-Engineering-Katas/ai-katas/blob/main/genai-capability-combinations.md)
