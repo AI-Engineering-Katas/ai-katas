@@ -32,12 +32,18 @@ Image Classification is a solution for categorizing and labeling images into pre
 ## Technologies
 
 - Convolutional Neural Networks
-- Vision Transformers
-- ResNet architectures
-- Feature extraction
-- Ensemble models
+- Transfer Learning
+- Feature Extraction
+- Data Augmentation
+- Model Ensembles
+
+## Tools
+
+- [Image Classification Tools](../tools/image-classification-tools)
+- [Deep Learning Frameworks](../tools/deep-learning-frameworks)
+- [Machine Learning Libraries](../tools/machine-learning-libraries)
 
 ## Related Solutions
 
-- [Object Detection](./object-detection)
-- [Semantic Segmentation](./semantic-segmentation)
+- [Computer Vision](./computer-vision)
+- [Pattern Recognition](./pattern-recognition)
