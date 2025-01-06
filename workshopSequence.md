@@ -1,10 +1,15 @@
-# Long-form workshop sequence
+# Long-form workshop sequence (4 hours)
 
-## Prep (30 minutes)
+## Intro (5 minutes)
+
+1. Hello! We are Gwen and Lee from Indianapolis
+2. Introduce the AI Kata resources on GitHub
+
+## Workshop Prep (30 minutes)
 
 1. Capabilities Slideshow
 2. Capabilities QA
-3. Journey Map video
+3. [Journey Map video](https://www.youtube.com/watch?v=2W13ext26kQ)
    - Actions that a user must take to complete their goal
    - Touchpoints where the user interacts with the system
 
@@ -24,7 +29,7 @@
 - If you have questions about technology you are unfamiliar with, ask ChatGPT/Anthropic
 - Do not ask ChatGPT/Anthropic questions like "Design a system for this kata"
 
-## Exercise (120minutes + three 10minute breaks)
+## Exercise (120minutes + two 10minute breaks)
 
 1. Read Kata
 2. Write Journey Map of current user process
@@ -34,7 +39,7 @@
 6. Revise your design
 7. Prepare a presentation
 
-## Review
+## Review (60 minutes)
 
 1. Present
 2. Questions and feedback
@@ -45,6 +50,7 @@
 ### Presentation
 
 - Capabilities slideshow
+- Kata example slideshow
 - Journey Map video
 
 ### Physical
@@ -61,4 +67,4 @@
 
 ### Reference
 
-- Compendium site
+- [AI Building Blocks](https://ai-engineering-katas.github.io/ai-katas/)
