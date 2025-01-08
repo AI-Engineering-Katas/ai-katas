@@ -39,9 +39,10 @@ Image Classification is a solution for categorizing and labeling images into pre
 
 ## Tools
 
-- [Image Classification Tools](../tools/image-classification-tools)
-- [Deep Learning Frameworks](../tools/deep-learning-frameworks)
-- [Machine Learning Libraries](../tools/machine-learning-libraries)
+- [Computer Vision Libraries](../tools/computer-vision-libraries)
+- [Image Processing Tools](../tools/image-processing-tools)
+- [Visual Feature Extractors](../tools/visual-feature-extractors)
+- [Scene Understanding Platforms](../tools/scene-understanding-platforms)
 
 ## Related Solutions
 

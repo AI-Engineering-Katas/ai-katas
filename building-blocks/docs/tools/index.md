@@ -42,3 +42,7 @@ Available tools and utilities:
 - [Forecasting Frameworks](./forecasting-frameworks.md)
 - [Statistical Analysis Tools](./statistical-analysis-tools.md)
 - [Predictive Modeling Platforms](./predictive-modeling-platforms.md)
+- [Graph Analytics Platforms](./graph-analytics-platforms.md)
+- [Pattern Mining Tools](./pattern-mining-tools.md)
+- [Network Analysis Libraries](./network-analysis-libraries.md)
+- [Data Mining Frameworks](./data-mining-frameworks.md)

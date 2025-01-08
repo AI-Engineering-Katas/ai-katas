@@ -27,3 +27,10 @@ Object Detection is a computer vision technique that identifies and locates obje
 - Quality control in manufacturing
 - Autonomous vehicles
 - Retail analytics
+
+## Tools
+
+- [Computer Vision Libraries](../tools/computer-vision-libraries)
+- [Image Processing Tools](../tools/image-processing-tools)
+- [Visual Feature Extractors](../tools/visual-feature-extractors)
+- [Scene Understanding Platforms](../tools/scene-understanding-platforms)
