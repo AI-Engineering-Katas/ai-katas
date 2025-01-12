@@ -44,7 +44,7 @@ Network Analysis is a solution for discovering and analyzing patterns, relations
 
 ## Tools
 
-- [Graph Analytics Platforms](../tools/graph-analytics-platforms)
-- [Network Analysis Libraries](../tools/network-analysis-libraries)
-- [Pattern Mining Tools](../tools/pattern-mining-tools)
-- [Data Mining Frameworks](../tools/data-mining-frameworks)
+- [Graph Analytics Platforms](../05-tools/graph-analytics-platforms)
+- [Network Analysis Libraries](../05-tools/network-analysis-libraries)
+- [Pattern Mining Tools](../05-tools/pattern-mining-tools)
+- [Data Mining Frameworks](../05-tools/data-mining-frameworks)

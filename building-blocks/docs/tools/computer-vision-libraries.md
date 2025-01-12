@@ -29,6 +29,7 @@ Libraries for processing, analyzing, and understanding visual data.
 ## Commercial Implementations
 
 - **OpenCV**
+
   - Industry standard computer vision
   - Comprehensive algorithms
   - Multi-language support
@@ -52,15 +53,18 @@ Libraries for processing, analyzing, and understanding visual data.
 A manufacturer implemented computer vision for defect detection:
 
 ### Challenge
+
 - High-speed production line
 - Various defect types
 - Real-time requirements
 
 ### Solution
+
 - Implemented OpenCV
 - Custom detection pipeline
 - GPU acceleration
 
 ### Results
+
 - 95% defect detection rate
-- Reduced manual inspection 
+- Reduced manual inspection

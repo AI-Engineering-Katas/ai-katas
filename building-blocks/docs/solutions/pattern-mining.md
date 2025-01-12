@@ -43,7 +43,7 @@ Pattern Mining is a solution for discovering recurring structures, associations,
 
 ## Tools
 
-- [Pattern Mining Tools](../tools/pattern-mining-tools)
-- [Graph Analytics Platforms](../tools/graph-analytics-platforms)
-- [Network Analysis Libraries](../tools/network-analysis-libraries)
-- [Data Mining Frameworks](../tools/data-mining-frameworks)
+- [Pattern Mining Tools](../05-tools/pattern-mining-tools)
+- [Graph Analytics Platforms](../05-tools/graph-analytics-platforms)
+- [Network Analysis Libraries](../05-tools/network-analysis-libraries)
+- [Data Mining Frameworks](../05-tools/data-mining-frameworks)

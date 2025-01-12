@@ -29,6 +29,7 @@ Platforms for analyzing and discovering patterns in graph and network data.
 ## Commercial Implementations
 
 - **Neo4j Graph Data Science**
+
   - Enterprise graph analytics
   - Scalable algorithms
   - Rich visualization
@@ -49,15 +50,18 @@ Platforms for analyzing and discovering patterns in graph and network data.
 A bank implemented graph analytics for fraud detection:
 
 ### Challenge
+
 - Complex transaction networks
 - Hidden fraud patterns
 - Real-time monitoring needs
 
 ### Solution
+
 - Implemented Neo4j
 - Pattern matching algorithms
 - Network visualization
 
 ### Results
+
 - 40% better fraud detection
-- Faster pattern identification 
+- Faster pattern identification

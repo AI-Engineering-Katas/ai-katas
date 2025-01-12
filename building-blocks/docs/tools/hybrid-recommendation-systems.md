@@ -28,6 +28,7 @@ Systems that combine multiple recommendation techniques to improve accuracy and 
 ## Commercial Implementations
 
 - **Amazon Personalize**
+
   - Fully managed service
   - Supports hybrid recommendations
 
@@ -46,14 +47,17 @@ Systems that combine multiple recommendation techniques to improve accuracy and 
 A retail company implemented a hybrid recommendation system to enhance user experience:
 
 ### Challenge
+
 - Large product catalog
 - Need for personalized recommendations
 - High user engagement required
 
 ### Solution
+
 - Implemented Google Cloud Recommendations AI
 - Integrated user behavior and item features
 
 ### Results
+
 - 35% increase in conversion rates
-- Improved user engagement 
+- Improved user engagement

@@ -26,6 +26,7 @@ Tools and libraries designed for image classification tasks.
 ## Commercial Implementations
 
 - **Keras**
+
   - High-level neural networks API
   - Supports image classification with various architectures
 
@@ -44,14 +45,17 @@ Tools and libraries designed for image classification tasks.
 A healthcare provider implemented image classification for diagnosing conditions:
 
 ### Challenge
+
 - Large volume of medical images
 - Need for high accuracy
 - Real-time processing required
 
 ### Solution
+
 - Implemented Keras for model training
 - Used transfer learning for faster results
 
 ### Results
+
 - 90% accuracy in condition diagnosis
-- Improved patient outcomes 
+- Improved patient outcomes

@@ -29,6 +29,7 @@ Tools for manipulating and analyzing image data.
 ## Commercial Implementations
 
 - **Pillow**
+
   - Python imaging library
   - Basic processing
   - Format support
@@ -52,15 +53,18 @@ Tools for manipulating and analyzing image data.
 A hospital improved their medical image analysis:
 
 ### Challenge
+
 - Large image datasets
 - Various image formats
 - Quality requirements
 
 ### Solution
+
 - Implemented scikit-image
 - Automated preprocessing
 - Quality enhancement
 
 ### Results
+
 - 40% faster processing
-- Better image quality 
+- Better image quality

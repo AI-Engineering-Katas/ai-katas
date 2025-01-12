@@ -29,6 +29,7 @@ Tools for extracting meaningful features from visual data.
 ## Commercial Implementations
 
 - **TensorFlow Hub**
+
   - Pre-trained feature extractors
   - Multiple architectures
   - Easy integration
@@ -52,15 +53,18 @@ Tools for extracting meaningful features from visual data.
 An e-commerce platform implemented visual search:
 
 ### Challenge
+
 - Large product catalog
 - Visual similarity needs
 - Real-time requirements
 
 ### Solution
+
 - Implemented TensorFlow Hub
 - Feature extraction pipeline
 - Vector search
 
 ### Results
+
 - Improved search accuracy
-- Better user engagement 
+- Better user engagement

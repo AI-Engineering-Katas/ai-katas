@@ -28,11 +28,13 @@ End-to-end frameworks for building and deploying forecasting models.
 ## Commercial Implementations
 
 - **Amazon Forecast**
+
   - Fully managed forecasting service
   - AutoML capabilities
   - Scalable deployment
 
 - **Azure Time Series Insights**
+
   - Enterprise-grade forecasting
   - IoT integration
   - Real-time analytics
@@ -55,15 +57,18 @@ End-to-end frameworks for building and deploying forecasting models.
 An energy company implemented automated forecasting:
 
 ### Challenge
+
 - Complex demand patterns
 - Multiple energy sources
 - Weather dependencies
 
 ### Solution
+
 - Implemented Amazon Forecast
 - Integrated weather data
 - Automated predictions
 
 ### Results
+
 - 30% better accuracy
-- Reduced operational costs 
+- Reduced operational costs

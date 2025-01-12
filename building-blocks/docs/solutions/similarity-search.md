@@ -36,9 +36,9 @@ Modern similarity search solutions provide:
 
 For implementing similarity search, consider these tools:
 
-- [Vector Databases](../tools/vector-databases)
-- [Vector Similarity Search](../tools/vector-similarity-search)
-- [Search Engines](../tools/search-engines)
+- [Vector Databases](../05-tools/vector-databases)
+- [Vector Similarity Search](../05-tools/vector-similarity-search)
+- [Search Engines](../05-tools/search-engines)
 
 ## Best Practices
 

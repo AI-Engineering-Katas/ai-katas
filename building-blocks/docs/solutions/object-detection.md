@@ -30,7 +30,8 @@ Object Detection is a computer vision technique that identifies and locates obje
 
 ## Tools
 
-- [Computer Vision Libraries](../tools/computer-vision-libraries)
-- [Image Processing Tools](../tools/image-processing-tools)
-- [Visual Feature Extractors](../tools/visual-feature-extractors)
-- [Scene Understanding Platforms](../tools/scene-understanding-platforms)
+- [Computer Vision Libraries](../05-tools/computer-vision-libraries)
+- [3D Vision Libraries](../05-tools/3d-vision-libraries)
+- [Point Cloud Processing Tools](../05-tools/point-cloud-processing-tools)
+- [Spatial Analysis Frameworks](../05-tools/spatial-analysis-frameworks)
+- [Scene Reconstruction Platforms](../05-tools/scene-reconstruction-platforms)

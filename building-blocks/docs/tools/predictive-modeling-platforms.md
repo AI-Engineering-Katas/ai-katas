@@ -28,6 +28,7 @@ Platforms that combine multiple approaches for predictive modeling and forecasti
 ## Commercial Implementations
 
 - **DataRobot**
+
   - AutoML capabilities
   - Time series focus
   - Enterprise deployment
@@ -48,15 +49,18 @@ Platforms that combine multiple approaches for predictive modeling and forecasti
 A corporation implemented automated predictive modeling:
 
 ### Challenge
+
 - Multiple business metrics
 - Various prediction horizons
 - Complex dependencies
 
 ### Solution
+
 - Implemented DataRobot
 - Automated model selection
 - Integrated business rules
 
 ### Results
+
 - 40% faster modeling
-- Improved accuracy 
+- Improved accuracy

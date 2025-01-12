@@ -15,8 +15,8 @@ Text Understanding is the capability to comprehend, analyze, and extract meaning
 
 ## Implementation Tools
 
-- [Text Analytics APIs](../tools/text-analytics-apis)
-- [NLP Frameworks](../tools/nlp-frameworks)
+- [Text Analytics APIs](../05-tools/text-analytics-apis)
+- [NLP Frameworks](../05-tools/nlp-frameworks)
 
 ## Overview
 

@@ -29,6 +29,7 @@ Frameworks for discovering patterns and insights in large datasets.
 ## Commercial Implementations
 
 - **Weka**
+
   - Comprehensive data mining
   - Visual interface
   - Algorithm collection
@@ -49,15 +50,18 @@ Frameworks for discovering patterns and insights in large datasets.
 A company analyzed customer behavior patterns:
 
 ### Challenge
+
 - Complex behavior patterns
 - Multiple data sources
 - Temporal dependencies
 
 ### Solution
+
 - Implemented Orange
 - Visual pattern discovery
 - Interactive analysis
 
 ### Results
+
 - Better customer understanding
-- Improved targeting 
+- Improved targeting

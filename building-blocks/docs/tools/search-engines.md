@@ -32,18 +32,21 @@ Enterprise and open-source search engine platforms that provide scalable informa
 ## Commercial Implementations
 
 - **Elasticsearch**
+
   - Open source
   - Highly scalable
   - Rich feature set
   - Strong ecosystem
 
 - **Solr**
+
   - Open source
   - Mature platform
   - Enterprise features
   - Strong text search
 
 - **Typesense**
+
   - Modern architecture
   - Fast implementation
   - Easy to set up
@@ -68,19 +71,22 @@ Enterprise and open-source search engine platforms that provide scalable informa
 A software company implemented enterprise search for their documentation:
 
 ### Challenge
+
 - Millions of documents
 - Multiple languages
 - Complex filtering needs
 - Real-time updates
 
 ### Solution
+
 - Implemented Elasticsearch
 - Custom relevance scoring
 - Faceted navigation
 - Automated indexing
 
 ### Results
+
 - 80% faster search times
 - Improved search relevance
 - Better user satisfaction
-- Reduced support tickets 
+- Reduced support tickets

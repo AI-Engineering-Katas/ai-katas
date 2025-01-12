@@ -16,6 +16,7 @@ sidebar_label: 3D Scene Understanding
 ## Overview
 
 3D Scene Understanding enables systems to:
+
 - Recognize objects and their spatial relationships
 - Understand scene geometry and layout
 - Analyze depth and distance information

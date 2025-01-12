@@ -27,6 +27,7 @@ Tools and libraries designed to implement content-based filtering techniques for
 ## Commercial Implementations
 
 - **Apache Mahout**
+
   - Scalable machine learning library
   - Supports content-based filtering
 
@@ -45,14 +46,17 @@ Tools and libraries designed to implement content-based filtering techniques for
 A news website implemented content-based filtering to enhance user experience:
 
 ### Challenge
+
 - Large catalog of articles
 - Need for personalized recommendations
 - High user engagement required
 
 ### Solution
+
 - Implemented Scikit-learn for content-based filtering
 - Analyzed article features and user preferences
 
 ### Results
+
 - 20% increase in article views
-- Improved user satisfaction 
+- Improved user satisfaction

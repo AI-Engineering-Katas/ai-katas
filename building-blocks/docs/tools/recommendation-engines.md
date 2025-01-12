@@ -28,11 +28,13 @@ Platforms and libraries designed to provide personalized recommendations based o
 ## Commercial Implementations
 
 - **Amazon Personalize**
+
   - Fully managed service
   - Easy integration with AWS services
   - Customizable algorithms
 
 - **Google Cloud Recommendations AI**
+
   - Managed service
   - Supports various recommendation types
   - Good for e-commerce
@@ -54,16 +56,19 @@ Platforms and libraries designed to provide personalized recommendations based o
 A retail company implemented a recommendation engine to enhance user experience:
 
 ### Challenge
+
 - Large product catalog
 - Need for personalized recommendations
 - High user engagement required
 
 ### Solution
+
 - Implemented Amazon Personalize
 - Integrated with existing user data
 - Customized recommendation algorithms
 
 ### Results
+
 - 30% increase in conversion rates
 - Improved user engagement
-- Higher customer satisfaction 
+- Higher customer satisfaction

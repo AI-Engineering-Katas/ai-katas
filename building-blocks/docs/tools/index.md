@@ -1,4 +1,5 @@
 ---
+sidebar_position: 5
 pagination_prev: null
 pagination_next: null
 ---
@@ -46,3 +47,7 @@ Available tools and utilities:
 - [Pattern Mining Tools](./pattern-mining-tools.md)
 - [Network Analysis Libraries](./network-analysis-libraries.md)
 - [Data Mining Frameworks](./data-mining-frameworks.md)
+- [3D Vision Libraries](./3d-vision-libraries.md)
+- [Point Cloud Processing Tools](./point-cloud-processing-tools.md)
+- [Spatial Analysis Frameworks](./spatial-analysis-frameworks.md)
+- [Scene Reconstruction Platforms](./scene-reconstruction-platforms.md)

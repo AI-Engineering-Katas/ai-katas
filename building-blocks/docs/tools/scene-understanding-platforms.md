@@ -29,6 +29,7 @@ Platforms for comprehensive scene analysis and understanding.
 ## Commercial Implementations
 
 - **Azure Computer Vision**
+
   - Comprehensive scene analysis
   - Multiple visual tasks
   - Cloud-based
@@ -52,15 +53,18 @@ Platforms for comprehensive scene analysis and understanding.
 A retailer implemented scene understanding:
 
 ### Challenge
+
 - Complex store layouts
 - Customer behavior analysis
 - Privacy requirements
 
 ### Solution
+
 - Implemented Azure Computer Vision
 - Custom analytics pipeline
 - Privacy-preserving features
 
 ### Results
+
 - Better store insights
-- Improved layout 
+- Improved layout

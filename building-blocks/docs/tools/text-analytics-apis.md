@@ -33,18 +33,21 @@ Cloud-based APIs that provide ready-to-use text analysis capabilities including 
 ## Commercial Implementations
 
 - **Azure Text Analytics**
+
   - Comprehensive language support
   - Strong enterprise integration
   - Good documentation
   - Built-in compliance features
 
 - **Google Cloud Natural Language API**
+
   - Excellent entity recognition
   - Strong sentiment analysis
   - Good multilingual support
   - Integration with other Google services
 
 - **Amazon Comprehend**
+
   - Strong AWS integration
   - Good scaling capabilities
   - Custom entity recognition
@@ -69,19 +72,22 @@ Cloud-based APIs that provide ready-to-use text analysis capabilities including 
 A customer service platform implemented text analytics to improve support ticket routing:
 
 ### Challenge
+
 - 50,000+ support tickets monthly
 - Multiple languages
 - Need for real-time processing
 - Complex categorization requirements
 
 ### Solution
+
 - Implemented Azure Text Analytics
 - Automated language detection
 - Entity and intent extraction
 - Sentiment scoring
 
 ### Results
+
 - 60% faster ticket routing
 - 40% reduction in misrouted tickets
 - Improved response prioritization
-- Better customer satisfaction tracking 
+- Better customer satisfaction tracking

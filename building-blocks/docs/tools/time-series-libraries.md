@@ -28,16 +28,19 @@ Libraries specialized in analyzing and forecasting time series data.
 ## Commercial Implementations
 
 - **Prophet**
+
   - Facebook's time series forecasting tool
   - Handles missing data and outliers
   - Good for business forecasting
 
 - **statsmodels**
+
   - Statistical modeling library
   - Comprehensive time series tools
   - Academic/research focus
 
 - **Tiny Time Mixers (TTM)**
+
   - 1M parameter foundation model
   - CPU-trainable
   - Strong interpretability
@@ -61,15 +64,18 @@ Libraries specialized in analyzing and forecasting time series data.
 A retail company implemented time series forecasting:
 
 ### Challenge
+
 - Seasonal sales patterns
 - Multiple product lines
 - Variable demand
 
 ### Solution
+
 - Implemented Prophet
 - Incorporated seasonal patterns
 - Added custom features
 
 ### Results
+
 - 25% more accurate forecasts
-- Better inventory management 
+- Better inventory management

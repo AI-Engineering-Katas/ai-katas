@@ -27,6 +27,7 @@ Libraries that provide a wide range of algorithms and tools for building machine
 ## Commercial Implementations
 
 - **Scikit-learn**
+
   - Comprehensive library for classical machine learning
   - Easy to use and well-documented
 
@@ -45,14 +46,17 @@ Libraries that provide a wide range of algorithms and tools for building machine
 A retail company implemented machine learning for customer segmentation:
 
 ### Challenge
+
 - Large customer dataset
 - Need for targeted marketing
 - High variability in customer behavior
 
 ### Solution
+
 - Implemented Scikit-learn for clustering and classification
 - Analyzed customer features and behaviors
 
 ### Results
+
 - Improved marketing ROI
-- Better customer targeting 
+- Better customer targeting

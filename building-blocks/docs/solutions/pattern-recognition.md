@@ -41,8 +41,8 @@ Pattern Recognition is a solution for identifying and categorizing patterns in d
 
 For efficient pattern matching and similarity computations:
 
-- [Vector Similarity Search](../tools/vector-similarity-search)
-- [Vector Databases](../tools/vector-databases)
+- [Vector Similarity Search](../05-tools/vector-similarity-search)
+- [Vector Databases](../05-tools/vector-databases)
 
 ## Related Solutions
 
@@ -50,6 +50,6 @@ For efficient pattern matching and similarity computations:
 
 ## Tools
 
-- [Machine Learning Libraries](../tools/machine-learning-libraries)
-- [Deep Learning Frameworks](../tools/deep-learning-frameworks)
-- [Image Classification Tools](../tools/image-classification-tools)
+- [Machine Learning Libraries](../05-tools/machine-learning-libraries)
+- [Deep Learning Frameworks](../05-tools/deep-learning-frameworks)
+- [Image Classification Tools](../05-tools/image-classification-tools)

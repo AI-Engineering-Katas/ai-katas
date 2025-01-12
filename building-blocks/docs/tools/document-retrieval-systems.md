@@ -32,12 +32,14 @@ Specialized systems for storing, indexing, and retrieving documents and their me
 ## Commercial Implementations
 
 - **OpenSearch**
+
   - Open source
   - Document-focused
   - Good scalability
   - AWS integration
 
 - **MongoDB Atlas Search**
+
   - Integrated search
   - Document-native
   - Good performance
@@ -62,19 +64,22 @@ Specialized systems for storing, indexing, and retrieving documents and their me
 A law firm implemented document retrieval for their case files:
 
 ### Challenge
+
 - Complex document types
 - Strict security needs
 - Fast retrieval required
 - Version tracking needed
 
 ### Solution
+
 - Implemented OpenSearch
 - Custom security plugins
 - Automated metadata extraction
 - Version control integration
 
 ### Results
+
 - 70% faster document retrieval
 - Improved security compliance
 - Better document organization
-- Reduced manual filing work 
+- Reduced manual filing work

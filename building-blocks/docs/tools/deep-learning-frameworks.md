@@ -27,6 +27,7 @@ Frameworks designed for building and training deep learning models, including th
 ## Commercial Implementations
 
 - **TensorFlow**
+
   - Open-source framework for deep learning
   - Strong community and ecosystem
 
@@ -45,14 +46,17 @@ Frameworks designed for building and training deep learning models, including th
 A tech company implemented deep learning for image classification:
 
 ### Challenge
+
 - Large dataset of images
 - Need for high accuracy
 - Real-time processing required
 
 ### Solution
+
 - Implemented TensorFlow for model training
 - Used transfer learning for faster results
 
 ### Results
+
 - 95% accuracy in image classification
-- Improved processing speed 
+- Improved processing speed

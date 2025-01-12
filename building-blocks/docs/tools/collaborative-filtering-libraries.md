@@ -27,10 +27,12 @@ Libraries and frameworks that implement collaborative filtering techniques for g
 ## Commercial Implementations
 
 - **Surprise**
+
   - Python library for building and analyzing recommender systems
   - Easy to use and flexible
 
 - **LightFM**
+
   - Hybrid recommendation model
   - Supports both collaborative and content-based filtering
 
@@ -49,15 +51,18 @@ Libraries and frameworks that implement collaborative filtering techniques for g
 A streaming service implemented collaborative filtering to enhance user experience:
 
 ### Challenge
+
 - Large catalog of movies
 - Need for personalized recommendations
 - High user engagement required
 
 ### Solution
+
 - Implemented Surprise library
 - Analyzed user ratings and preferences
 - Customized recommendation algorithms
 
 ### Results
+
 - 25% increase in user engagement
-- Improved user satisfaction 
+- Improved user satisfaction

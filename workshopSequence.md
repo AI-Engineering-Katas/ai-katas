@@ -7,11 +7,12 @@
 
 ## Workshop Prep (30 minutes)
 
-1. Capabilities Slideshow
-2. Capabilities QA
-3. [Journey Map video](https://www.youtube.com/watch?v=2W13ext26kQ)
+1. AI Building Blocks Intro
+1. System Design Intro Slides
+1. [Journey Map video](https://www.youtube.com/watch?v=2W13ext26kQ)
    - Actions that a user must take to complete their goal
    - Touchpoints where the user interacts with the system
+1. Sample Walk Through of the Reference Site
 
 ## Groups and Katas (15 minutes)
 
@@ -63,7 +64,6 @@
 - Pens
 - Printer Paper
 - Masking tape
-- a couple d12 dice
 
 ### Reference
 

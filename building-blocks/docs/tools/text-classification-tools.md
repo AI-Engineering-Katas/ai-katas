@@ -27,6 +27,7 @@ Tools and libraries specifically designed for text classification tasks.
 ## Commercial Implementations
 
 - **FastText**
+
   - Library for efficient text classification and representation
   - Developed by Facebook AI Research
 
@@ -45,14 +46,17 @@ Tools and libraries specifically designed for text classification tasks.
 An email service implemented text classification for spam detection:
 
 ### Challenge
+
 - Large volume of incoming emails
 - Need for real-time classification
 - High accuracy required
 
 ### Solution
+
 - Implemented FastText for text classification
 - Analyzed email features and user feedback
 
 ### Results
+
 - 98% accuracy in spam detection
-- Reduced manual moderation workload 
+- Reduced manual moderation workload
