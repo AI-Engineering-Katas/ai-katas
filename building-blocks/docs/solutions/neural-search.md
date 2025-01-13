@@ -43,6 +43,6 @@ Neural Search is a solution for semantic search and retrieval using neural netwo
 
 ## Tools
 
-- [Vector Databases](../05-tools/vector-databases)
-- [Vector Similarity Search](../05-tools/vector-similarity-search)
-- [Search Engines](../05-tools/search-engines)
+- [Vector Databases](../tools/vector-databases)
+- [Vector Similarity Search](../tools/vector-similarity-search)
+- [Search Engines](../tools/search-engines)

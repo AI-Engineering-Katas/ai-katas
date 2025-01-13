@@ -44,6 +44,6 @@ Content-based Filtering is a solution for making personalized recommendations by
 
 ## Tools
 
-- [Recommendation Engines](../05-tools/recommendation-engines)
-- [Hybrid Recommendation Systems](../05-tools/hybrid-recommendation-systems)
-- [Content-based Filtering Tools](../05-tools/content-based-filtering-tools)
+- [Recommendation Engines](../tools/recommendation-engines)
+- [Hybrid Recommendation Systems](../tools/hybrid-recommendation-systems)
+- [Content-based Filtering Tools](../tools/content-based-filtering-tools)

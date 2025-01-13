@@ -37,6 +37,13 @@ Neural Rendering is a solution that combines traditional computer graphics with 
 - Neural scene representations
 - Deep generative models
 
+## Tools
+
+- [Neural Rendering Frameworks](../tools/neural-rendering-frameworks)
+- [Deep Learning Frameworks](../tools/deep-learning-frameworks)
+- [3D Vision Libraries](../tools/3d-vision-libraries)
+- [Point Cloud Processing Tools](../tools/point-cloud-processing-tools)
+
 ## Related Solutions
 
 - [3D Modeling](./3d-modeling)

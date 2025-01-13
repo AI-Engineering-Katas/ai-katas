@@ -37,6 +37,15 @@ Audio Classification is a solution for categorizing and identifying different ty
 - Wavelet transforms
 - Deep learning classifiers
 
+## Tools
+
+- [Audio Processing Libraries](../tools/audio-processing-libraries)
+- [Speech Recognition Tools](../tools/speech-recognition-tools)
+- [Audio Feature Extraction Tools](../tools/audio-feature-extraction-tools)
+- [Sound Classification Libraries](../tools/sound-classification-libraries)
+- [Machine Learning Libraries](../tools/machine-learning-libraries)
+- [Deep Learning Frameworks](../tools/deep-learning-frameworks)
+
 ## Related Solutions
 
 - [Speech Recognition](./speech-recognition)

@@ -2,6 +2,13 @@
 
 Open-source libraries and frameworks for natural language processing tasks, providing building blocks for text analysis and understanding.
 
+
+## Supported Solution Fields
+
+- [Machine Translation](../solutions/machine-translation)
+- [Language Modeling](../solutions/language-modeling)
+- [Cross-lingual Understanding](../solutions/cross-lingual-understanding)
+
 ## When to Use
 
 - When you need fine-grained control over NLP pipelines

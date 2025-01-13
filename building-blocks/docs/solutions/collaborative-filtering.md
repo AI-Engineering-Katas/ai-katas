@@ -43,4 +43,4 @@ Collaborative Filtering is a solution for making personalized recommendations ba
 
 ## Tools
 
-- [Hybrid Recommendation Systems](../05-tools/hybrid-recommendation-systems)
+- [Hybrid Recommendation Systems](../tools/hybrid-recommendation-systems)

@@ -43,4 +43,4 @@ Language Modeling is a solution for understanding and generating human language 
 
 ## Tools
 
-- [NLP Frameworks](../05-tools/nlp-frameworks)
+- [NLP Frameworks](../tools/nlp-frameworks)

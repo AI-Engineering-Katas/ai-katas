@@ -43,7 +43,7 @@ Semantic Segmentation is a solution for partitioning and classifying regions of 
 
 ## Tools
 
-- [3D Vision Libraries](../05-tools/3d-vision-libraries)
-- [Point Cloud Processing Tools](../05-tools/point-cloud-processing-tools)
-- [Spatial Analysis Frameworks](../05-tools/spatial-analysis-frameworks)
-- [Scene Reconstruction Platforms](../05-tools/scene-reconstruction-platforms)
+- [3D Vision Libraries](../tools/3d-vision-libraries)
+- [Point Cloud Processing Tools](../tools/point-cloud-processing-tools)
+- [Spatial Analysis Frameworks](../tools/spatial-analysis-frameworks)
+- [Scene Reconstruction Platforms](../tools/scene-reconstruction-platforms)

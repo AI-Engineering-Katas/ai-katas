@@ -37,6 +37,13 @@ Decision Intelligence is a solution that combines data science, decision theory,
 - Optimization algorithms
 - Causal inference
 
+## Tools
+
+- [Decision Intelligence Platforms](../tools/decision-intelligence-platforms)
+- [Statistical Analysis Tools](../tools/statistical-analysis-tools)
+- [Forecasting Frameworks](../tools/forecasting-frameworks)
+- [Pattern Mining Tools](../tools/pattern-mining-tools)
+
 ## Related Solutions
 
 - [Predictive Analytics](./predictive-analytics)

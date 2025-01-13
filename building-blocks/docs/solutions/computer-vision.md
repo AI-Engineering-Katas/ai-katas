@@ -37,6 +37,14 @@ Computer Vision is a solution for enabling machines to understand and process vi
 - Instance Segmentation
 - Feature Detection
 
+## Tools
+
+- [Computer Vision Libraries](../tools/computer-vision-libraries)
+- [Image Processing Tools](../tools/image-processing-tools)
+- [3D Vision Libraries](../tools/3d-vision-libraries)
+- [Point Cloud Processing Tools](../tools/point-cloud-processing-tools)
+- [Scene Understanding Platforms](../tools/scene-understanding-platforms)
+
 ## Related Solutions
 
 - [Object Detection](./object-detection)

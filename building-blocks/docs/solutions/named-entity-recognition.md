@@ -39,11 +39,11 @@ Named Entity Recognition is a solution for identifying and classifying named ent
 
 ## Tools
 
-- [Text Analytics APIs](../05-tools/text-analytics-apis)
-- [NLP Frameworks](../05-tools/nlp-frameworks)
-- [Search Engines](../05-tools/search-engines)
-- [Document Retrieval Systems](../05-tools/document-retrieval-systems)
-- [Knowledge Base Systems](../05-tools/knowledge-base-systems)
+- [Text Analytics APIs](../tools/text-analytics-apis)
+- [NLP Frameworks](../tools/nlp-frameworks)
+- [Search Engines](../tools/search-engines)
+- [Document Retrieval Systems](../tools/document-retrieval-systems)
+- [Knowledge Base Systems](../tools/knowledge-base-systems)
 
 ## Related Solutions
 

@@ -37,6 +37,12 @@ sidebar_label: 3D Modeling
 - Implicit surface modeling
 - Procedural generation algorithms
 
+## Tools
+
+- [3D Modeling Tools](../tools/3d-modeling-tools)
+- [3D Vision Libraries](../tools/3d-vision-libraries)
+- [Point Cloud Processing Tools](../tools/point-cloud-processing-tools)
+
 ## Related Solutions
 
 - [Neural Rendering](./neural-rendering)

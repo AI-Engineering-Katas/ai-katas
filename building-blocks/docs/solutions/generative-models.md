@@ -37,6 +37,13 @@ Generative Models is a solution for creating new content that matches the patter
 - Transformer architectures
 - Neural style transfer
 
+## Tools
+
+- [Deep Learning Frameworks](../tools/deep-learning-frameworks)
+- [Machine Learning Libraries](../tools/machine-learning-libraries)
+- [Image Processing Tools](../tools/image-processing-tools)
+- [Visual Feature Extractors](../tools/visual-feature-extractors)
+
 ## Related Solutions
 
 - [Neural Rendering](./neural-rendering)

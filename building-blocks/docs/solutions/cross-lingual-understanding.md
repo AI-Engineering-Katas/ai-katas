@@ -48,8 +48,8 @@ Cross-lingual Understanding is a solution for processing and analyzing content a
 
 ## Tools
 
-- [Text Analytics APIs](../05-tools/text-analytics-apis)
-- [NLP Frameworks](../05-tools/nlp-frameworks)
+- [Text Analytics APIs](../tools/text-analytics-apis)
+- [NLP Frameworks](../tools/nlp-frameworks)
 
 ## Related Solutions
 

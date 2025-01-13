@@ -39,10 +39,10 @@ Image Classification is a solution for categorizing and labeling images into pre
 
 ## Tools
 
-- [Computer Vision Libraries](../05-tools/computer-vision-libraries)
-- [Image Processing Tools](../05-tools/image-processing-tools)
-- [Visual Feature Extractors](../05-tools/visual-feature-extractors)
-- [Scene Understanding Platforms](../05-tools/scene-understanding-platforms)
+- [Computer Vision Libraries](../tools/computer-vision-libraries)
+- [Image Processing Tools](../tools/image-processing-tools)
+- [Visual Feature Extractors](../tools/visual-feature-extractors)
+- [Scene Understanding Platforms](../tools/scene-understanding-platforms)
 
 ## Related Solutions
 

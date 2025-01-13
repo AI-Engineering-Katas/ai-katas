@@ -37,6 +37,10 @@ Cross-Modal Learning is a solution for understanding and processing relationship
 - Fusion networks
 - Contrastive learning
 
+## Tools
+
+- [Cross-Modal Learning Libraries](../tools/cross-modal-learning-libraries)
+
 ## Related Solutions
 
 - [Neural Search](./neural-search)

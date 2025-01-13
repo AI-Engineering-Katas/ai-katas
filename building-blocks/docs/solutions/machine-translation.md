@@ -37,6 +37,13 @@ Machine Translation is a solution for automatically translating text or speech f
 - Beam search
 - Transfer learning
 
+## Tools
+
+- [NLP Frameworks](../tools/nlp-frameworks)
+- [Deep Learning Frameworks](../tools/deep-learning-frameworks)
+- [Text Analytics APIs](../tools/text-analytics-apis)
+- [Machine Learning Libraries](../tools/machine-learning-libraries)
+
 ## Related Solutions
 
 - [Language Modeling](./language-modeling)
