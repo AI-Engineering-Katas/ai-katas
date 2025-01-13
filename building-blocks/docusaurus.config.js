@@ -40,17 +40,17 @@ const config = {
       items: [
         {
           label: "Capabilities",
-          to: "capabilities",
+          to: "/capabilities",
           position: "left",
         },
         {
           label: "Solutions",
-          to: "solutions",
+          to: "/solutions",
           position: "left",
         },
         {
           label: "Tools",
-          to: "tools",
+          to: "/tools",
           position: "left",
         },
         {
@@ -68,15 +68,15 @@ const config = {
           items: [
             {
               label: "Capabilities",
-              to: "capabilities",
+              to: "/capabilities",
             },
             {
               label: "Solutions",
-              to: "solutions",
+              to: "/solutions",
             },
             {
               label: "Tools",
-              to: "tools",
+              to: "/tools",
             },
           ],
         },
