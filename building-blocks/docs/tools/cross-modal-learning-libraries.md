@@ -5,7 +5,6 @@ Libraries and frameworks for processing and learning from multiple data modaliti
 ## Supported Solution Fields
 
 - [Cross-Modal Learning](../solutions/cross-modal-learning)
-- [Multi-Modal Understanding](../solutions/multi-modal-understanding)
 - [Neural Search](../solutions/neural-search)
 
 ## When to Use
