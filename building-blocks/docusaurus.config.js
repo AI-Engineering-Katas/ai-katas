@@ -40,17 +40,22 @@ const config = {
       items: [
         {
           label: "Capabilities",
-          to: "/capabilities",
+          to: "/capabilities/",
           position: "left",
         },
         {
           label: "Solutions",
-          to: "/solutions",
+          to: "/solutions/",
           position: "left",
         },
         {
           label: "Tools",
-          to: "/tools",
+          to: "/tools/",
+          position: "left",
+        },
+        {
+          label: "Usage",
+          to: "/gameplay/",
           position: "left",
         },
         {
