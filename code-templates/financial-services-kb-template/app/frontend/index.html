@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Services Knowledge Base</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding-top: 20px;
+      }
+      .result-card {
+        margin-bottom: 15px;
+        border-left: 4px solid #007bff;
+      }
+      .score-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+      .metadata-badge {
+        margin-right: 5px;
+      }
+      .summary {
+        font-style: italic;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mb-4">Financial Services Knowledge Base</h1>
+
+      <div class="row mb-4">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Ask a Question</h5>
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  id="query-input"
+                  class="form-control"
+                  placeholder="Enter your question..."
+                />
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  id="search-button"
+                >
+                  Search
+                </button>
+              </div>
+              <div class="mb-3">
+                <label for="user-select" class="form-label">User Role:</label>
+                <select class="form-select" id="user-select">
+                  <option value="user1">Analyst (Finance)</option>
+                  <option value="user2">Manager (Compliance)</option>
+                  <option value="user3">Executive (All Departments)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Status</h5>
+              <div id="status-display">
+                <span class="badge bg-success">System Ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="results-container">
+        <!-- Results will be displayed here -->
+        <div class="alert alert-info">
+          Enter a question above to search the knowledge base.
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

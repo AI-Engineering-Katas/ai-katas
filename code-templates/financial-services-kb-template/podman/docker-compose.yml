@@ -1,0 +1,54 @@
+version: "3"
+
+services:
+  # API service
+  api:
+    build:
+      context: ../
+      dockerfile: podman/api/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../app:/app
+      - ../data:/data
+    environment:
+      - VECTOR_DB_HOST=vector_db
+      - VECTOR_DB_PORT=6333
+    depends_on:
+      - vector_db
+    networks:
+      - kb_network
+
+  # Vector Database (Qdrant)
+  vector_db:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - vector_db_data:/qdrant/storage
+    networks:
+      - kb_network
+
+  # Frontend service
+  frontend:
+    build:
+      context: ../
+      dockerfile: podman/frontend/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../app/frontend:/app
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+    networks:
+      - kb_network
+
+networks:
+  kb_network:
+    driver: bridge
+
+volumes:
+  vector_db_data:

@@ -16,10 +16,9 @@
 
 ## Groups and Katas (15 minutes)
 
-1. Sort selves by experience
-2. Split into groups
-3. Explain rules
-4. Assign katas
+1. Split into groups
+2. Explain rules
+3. Assign katas
 
 ### Rules
 
@@ -42,9 +41,9 @@
 
 ## Review (60 minutes)
 
-1. Present
-2. Questions and feedback
-3. Votes
+1. Present solutions
+2. Questions, feedback, and emoji responding
+3. Announce emoji
 
 # Materials
 
@@ -71,16 +70,17 @@
 
 # Pre-reqs
 
-Please bring a laptop, a notebook, and something to write with to the workshop. It is not necessary for you to review any of the materials below before the workshop. That said, reviewing them will probably improve your experience.
+Want to get the most out of our workshop? While optional, exploring these resources beforehand will spark your creativity and improve your experience:
 
-You will use this docusaurus site and ChatGPT/Claude a learning tool reference during the workshop:[AI Building Blocks](https://ai-engineering-katas.github.io/ai-katas/)
+1. Skim the reference material we will use during the workshop at [AI Building Blocks](https://ai-engineering-katas.github.io/ai-katas/)
+2. Deep-dive into any Capability that interests you, explore its Solutions, and check out the related Tools
+3. Feel free to chat with AI assistants like ChatGPT or Claude to connect these concepts with your own ideas
 
-If you want to get a head start, I encourage you to indulge in a depth-first exploration by selecting a Capability, reviewing its Solutions, and then visiting the Solutions' associated Tools. Consult ChatGPT/Claude when you want to test your understanding or you want to ask a question that connects the content in the site to an idea you have.
+Join us ready to learn, whether you've done the prep or not – we'll explore together!
 
-More resources:
+Resources:
 
 - [Workshop Rules](https://github.com/AI-Engineering-Katas/ai-katas/blob/main/rules.md)
 - [Workshop Schedule](https://github.com/AI-Engineering-Katas/ai-katas/blob/main/workshopSequence.md)
-- [AI Kata GitHub](https://github.com/AI-Engineering-Katas/ai-katas/)
 - [GenAI Capabilities Worksheet](https://github.com/AI-Engineering-Katas/ai-katas/blob/main/genai-capabilities-cheatsheet.md)
 - [GenAI Capability Combo Worksheet](https://github.com/AI-Engineering-Katas/ai-katas/blob/main/genai-capability-combinations.md)

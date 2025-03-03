@@ -1,0 +1,56 @@
+COMPLIANCE GUIDELINES 2023
+PUBLIC DOCUMENT
+
+SECTION 1: REGULATORY COMPLIANCE FRAMEWORK
+
+1.1 Overview
+This document outlines the compliance framework that all employees must follow. Compliance with applicable laws, regulations, and internal policies is the responsibility of every employee.
+
+1.2 Key Regulations
+The company must comply with the following key regulations:
+- Banking Secrecy Act (BSA)
+- Anti-Money Laundering (AML) regulations
+- Know Your Customer (KYC) requirements
+- General Data Protection Regulation (GDPR)
+- Payment Card Industry Data Security Standard (PCI DSS)
+- Sarbanes-Oxley Act (SOX)
+
+1.3 Compliance Training
+All employees must complete mandatory compliance training annually. New employees must complete training within 30 days of joining the company.
+
+SECTION 2: CODE OF CONDUCT
+
+2.1 Ethical Standards
+All employees must adhere to the highest ethical standards in their professional conduct. This includes honesty, integrity, and transparency in all business dealings.
+
+2.2 Conflicts of Interest
+Employees must disclose any potential conflicts of interest to their manager and the Compliance Department. Employees should recuse themselves from decisions where they have a conflict of interest.
+
+2.3 Gifts and Entertainment
+Employees may not accept gifts or entertainment that could influence their business decisions. Gifts exceeding $100 in value must be reported to the Compliance Department.
+
+SECTION 3: CUSTOMER PROTECTION
+
+3.1 Fair Treatment
+All customers must be treated fairly and transparently. Product terms and conditions must be clearly disclosed, and customers should not be misled about product features or risks.
+
+3.2 Complaint Handling
+Customer complaints must be handled promptly and fairly. All complaints must be logged in the Complaint Management System and resolved within 14 days.
+
+3.3 Vulnerable Customers
+Special care must be taken when dealing with vulnerable customers. Employees should ensure these customers fully understand the products and services they are purchasing.
+
+SECTION 4: REPORTING VIOLATIONS
+
+4.1 Whistleblower Policy
+Employees are encouraged to report any suspected violations of laws, regulations, or company policies. The company has a strict non-retaliation policy for whistleblowers.
+
+4.2 Reporting Channels
+Violations can be reported through the following channels:
+- Direct manager
+- Compliance Department
+- Anonymous Ethics Hotline
+- Online Reporting Tool
+
+4.3 Investigation Process
+All reported violations will be investigated promptly and thoroughly. The Compliance Department will lead investigations and report findings to senior management.

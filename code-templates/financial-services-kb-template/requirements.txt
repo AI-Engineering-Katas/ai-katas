@@ -1,0 +1,28 @@
+# API Framework
+fastapi==0.103.1
+uvicorn==0.23.2
+pydantic==2.3.0
+
+# Vector Database Client
+qdrant-client==1.4.0
+
+# Document Processing
+python-multipart==0.0.6
+python-docx==0.8.11
+PyPDF2==3.0.1
+beautifulsoup4==4.12.2
+
+# NLP and Embeddings
+transformers==4.33.2
+sentence-transformers==2.2.2
+torch==2.0.1
+
+# Authorization
+python-jose==3.3.0
+passlib==1.7.4
+
+# Utilities
+python-dotenv==1.0.0
+tqdm==4.66.1
+numpy==1.25.2
+pandas==2.1.0
