@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import ChatMessage from './components/ChatMessage';
 import ChatInput from './components/ChatInput';
-import DrawingArea from './components/DrawingArea';
+import DrawingArea, { DrawingAreaRef } from './components/DrawingArea';
 import type { ExcalidrawElement } from '@excalidraw/excalidraw/types/element/types';
 import type { AppState } from '@excalidraw/excalidraw/types/types';
 
@@ -23,6 +23,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [drawingElements, setDrawingElements] = useState<ExcalidrawElement[]>([]);
   const [drawingState, setDrawingState] = useState<AppState | null>(null);
+  const drawingRef = useRef<DrawingAreaRef>(null);
 
   const handleSend = async (message: string) => {
     setIsLoading(true);
@@ -31,6 +32,11 @@ export default function Home() {
     setMessages(prev => [...prev, { text: message, isUser: true }]);
 
     try {
+      // Export the current drawing as an image
+      console.log('Exporting drawing as image...');
+      const imageData = await drawingRef.current?.exportImage();
+      console.log('Got image data:', imageData ? 'yes' : 'no');
+
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
@@ -38,12 +44,15 @@ export default function Home() {
         },
         body: JSON.stringify({
           message,
-          drawingElements,
-          drawingState
+          imageData
         }),
       });
 
       const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to get response');
+      }
       
       // Add AI response
       setMessages(prev => [...prev, {
@@ -54,7 +63,7 @@ export default function Home() {
     } catch (error) {
       console.error('Error:', error);
       setMessages(prev => [...prev, {
-        text: 'Sorry, there was an error processing your request.',
+        text: error instanceof Error ? error.message : 'Sorry, there was an error processing your request.',
         isUser: false
       }]);
     } finally {
@@ -76,7 +85,7 @@ export default function Home() {
       {/* Whiteboard Section */}
       <div className="h-[70vh] border-b relative">
         <div className="h-full w-full">
-          <DrawingArea onChange={handleDrawingChange} />
+          <DrawingArea ref={drawingRef} onChange={handleDrawingChange} />
         </div>
       </div>
       

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@excalidraw/excalidraw": "^0.17.0",
+    "@excalidraw/utils": "^0.1.3-test26",
     "@types/node": "^20.17.30",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
