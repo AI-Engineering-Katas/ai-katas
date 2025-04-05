@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* Excalidraw needs these styles to render properly */
+.excalidraw {
+  --color-primary: #6965db;
+  height: 100% !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+.excalidraw-wrapper {
+  height: 100% !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+.excalidraw .App {
+  height: 100%;
+} 

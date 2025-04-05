@@ -1,0 +1,33 @@
+{
+  "name": "ai-tutor",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "load-content": "ts-node scripts/content/load.ts"
+  },
+  "dependencies": {
+    "@excalidraw/excalidraw": "^0.17.0",
+    "@types/node": "^20.17.30",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.16",
+    "chromadb": "^1.8.1",
+    "chromadb-default-embed": "^2.14.0",
+    "dotenv-safe": "^8.2.0",
+    "gray-matter": "^4.0.3",
+    "litellm": "^0.12.0",
+    "next": "^14.0.0",
+    "postcss": "^8.4.31",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
+}

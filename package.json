@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/node": "^22.14.0",
+    "gray-matter": "^4.0.3"
+  }
+}

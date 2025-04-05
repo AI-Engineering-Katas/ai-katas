@@ -1,0 +1,19 @@
+FROM node:20-slim
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy source files
+COPY . .
+
+# Set environment variables
+ENV CHROMA_API_URL=http://chroma:8000
+ENV OPENAI_API_KEY=${OPENAI_API_KEY}
+
+# Run the content loader script
+CMD ["npx", "ts-node", "scripts/load-content.ts"] 
