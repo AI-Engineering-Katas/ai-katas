@@ -142,6 +142,22 @@ const DrawingArea = forwardRef<DrawingAreaRef, DrawingAreaProps>(({ onChange }, 
           size: blob.size,
           hasContent: blob.size > 0 
         });
+        
+        // --- Conditional download link for debugging ---
+        if (process.env.NEXT_PUBLIC_DEBUG_EXPORT_IMAGE === 'true') {
+          try {
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `excalidraw-export-${Date.now()}.png`;
+            console.log('[DEBUG] Triggering download of exported image...');
+            link.click();
+            URL.revokeObjectURL(url); // Clean up the object URL
+          } catch (downloadError) {
+            console.error('Error creating download link for debug image:', downloadError);
+          }
+        }
+        // --- End conditional download link ---
       
         return new Promise((resolve) => {
           const reader = new FileReader();
