@@ -42,9 +42,28 @@ function formatImageData(base64Data: string): string {
 export async function generateResponse(
   userMessage: string, 
   context: string[],
-  imageData?: string
+  imageData?: string,
+  generateMermaid: boolean = false
 ): Promise<string> {
-  const systemMessage = `You are a helpful AI tutor that assists users in understanding AI and machine learning concepts. 
+  let systemMessage: string;
+  
+  if (generateMermaid) {
+    systemMessage = `You are a helpful AI tutor that assists users in understanding AI and machine learning concepts by creating visual diagrams.
+Your task is to respond ONLY with a Mermaid flowchart diagram that visualizes the concept, architecture, or process the user is asking about.
+
+Important Instructions:
+1. ONLY respond with a Mermaid flowchart diagram enclosed in a code block (\`\`\`mermaid ... \`\`\`).
+2. Use flowchart TD (top-down) or LR (left-right) based on what's more appropriate for the concept.
+3. Keep the diagram clear and focused, using appropriate shapes and connections.
+4. Include brief, clear labels that explain each component.
+5. DO NOT include any text outside the Mermaid code block.
+
+If an image is provided, analyze it and incorporate relevant elements into your diagram suggestion.
+
+Use this context to inform your diagram:
+${context.join('\n\n')}`;
+  } else {
+    systemMessage = `You are a helpful AI tutor that assists users in understanding AI and machine learning concepts. 
 Use the following context to answer the user's question. If the context doesn't contain relevant information, 
 say so and provide a general response based on your knowledge.
 
@@ -53,6 +72,7 @@ If the image shows a diagram, flowchart, or any visual explanation, describe wha
 
 Context:
 ${context.join('\n\n')}`;
+  }
 
   const messages: ChatMessage[] = [
     {
@@ -110,7 +130,7 @@ ${context.join('\n\n')}`;
       body: JSON.stringify({
         model: 'mistralai/pixtral-12b',
         messages,
-        temperature: 0.7,
+        temperature: generateMermaid ? 0.3 : 0.7,
         max_tokens: 500
       })
     });

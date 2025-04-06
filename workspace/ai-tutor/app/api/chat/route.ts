@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { queryCollection } from '@/lib/chroma/client';
+// import { queryCollection } from '@/lib/chroma/client'; // Temporarily disable ChromaDB
 import { generateResponse, LLMError } from '@/lib/llm/client';
 
 export const runtime = 'edge';
@@ -12,86 +12,60 @@ interface LinkMetadata {
   url: string;
 }
 
-export async function POST(request: Request) {
+// Helper function to extract Mermaid diagram from LLM response
+function extractMermaidDiagram(text: string): string | null {
+  const mermaidRegex = /```mermaid\n([\s\S]*?)```/;
+  const match = text.match(mermaidRegex);
+  return match ? match[1].trim() : null;
+}
+
+export async function POST(req: Request) {
   try {
-    console.log('Processing chat request...');
-    const { message, imageData } = await request.json();
+    const { message, imageData, generateMermaid = false } = await req.json();
 
     if (!message || typeof message !== 'string') {
-      console.error('Invalid message format:', message);
-      return NextResponse.json(
-        { error: 'Message is required and must be a string' },
-        { status: 400 }
-      );
+      return new Response(JSON.stringify({ error: 'Invalid message format' }), {
+        status: 400,
+      });
     }
 
-    let relevantDocs: string[] = [];
-    let links: LinkMetadata[] = [];
-
-    if (RAG_ENABLED) {
-      console.log('Querying ChromaDB for context...');
-      // Query Chroma for relevant documents
-      try {
-        const results = await queryCollection(message);
-        console.log('Found relevant documents:', results.documents.length);
-        
-        // Get relevant documents for context
-        relevantDocs = results.documents
-          .filter((doc): doc is NonNullable<typeof doc> => doc !== null);
-
-        // Format the response with relevant links
-        links = results.metadatas
-          .filter((metadata): metadata is NonNullable<typeof metadata> => metadata !== null)
-          .map((metadata) => ({
-            title: metadata.title || 'Untitled',
-            url: metadata.path || '#'
-          }));
-      } catch (error) {
-        console.error('ChromaDB query failed:', error);
-        if (error instanceof Error && error.message.includes('Collection does not exist')) {
-          return NextResponse.json(
-            { error: 'Knowledge base not initialized. Please add some documents first.' },
-            { status: 503 }
-          );
-        }
-        throw error; // Re-throw for general error handling
-      }
-    }
-
-    console.log('Generating LLM response...');
-    // Generate response using LLM with context and image data if available
-    const llmResponse = await generateResponse(message, relevantDocs, imageData);
-
-    console.log('Successfully generated response');
-    return NextResponse.json({
-      message: llmResponse,
-      links
+    console.log(`Processing ${generateMermaid ? 'Mermaid diagram' : 'regular'} request:`, {
+      messageLength: message.length,
+      hasImage: Boolean(imageData)
     });
-  } catch (error) {
-    console.error('Error processing chat:', error);
-    
-    // Determine the appropriate error message and status code
-    let status = 500;
-    let errorResponse: any = {
-      error: 'An unexpected error occurred. Please try again.'
-    };
-    
-    if (error instanceof LLMError) {
-      status = error.statusCode || 502;
-      errorResponse = {
-        error: error.message,
-        details: error.responseBody
-      };
-    } else if (error instanceof Error) {
-      if (error.message.includes('OpenAI')) {
-        status = 502;
-        errorResponse.error = 'Failed to generate embeddings. Please try again.';
-      } else if (error.message.includes('ChromaDB')) {
-        status = 502;
-        errorResponse.error = 'Failed to query knowledge base. Please try again.';
+
+    // Temporarily disable ChromaDB query and use empty context
+    // const results = await queryCollection(message);
+    // const context = results.documents
+    //   .filter((doc): doc is string => doc !== null)
+    //   .slice(0, 3); // Limit to top 3 most relevant documents
+    const context: string[] = []; // Use empty context
+
+    // Generate response using the LLM
+    const llmResponse = await generateResponse(message, context, imageData, generateMermaid);
+    console.log('Raw LLM Response:', llmResponse); // Log the raw response
+
+    if (generateMermaid) {
+      const mermaidDiagram = extractMermaidDiagram(llmResponse);
+      console.log('[Backend] Extracted Mermaid Diagram:', mermaidDiagram); // Log extracted result
+
+      if (!mermaidDiagram) {
+        console.warn('No Mermaid diagram found in LLM response');
+        return new Response(JSON.stringify({
+          error: 'Failed to generate diagram',
+          message: 'The AI was unable to create a diagram for this request.'
+        }), { status: 422 });
       }
+      return new Response(JSON.stringify({ mermaidDiagram }));
     }
-    
-    return NextResponse.json(errorResponse, { status });
+
+    return new Response(JSON.stringify({ message: llmResponse }));
+
+  } catch (error) {
+    console.error('Error processing chat request:', error);
+    const statusCode = error instanceof LLMError ? error.statusCode || 500 : 500;
+    return new Response(JSON.stringify({ error: 'Failed to process request' }), {
+      status: statusCode,
+    });
   }
 } 
