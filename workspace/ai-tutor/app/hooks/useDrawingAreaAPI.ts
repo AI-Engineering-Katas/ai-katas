@@ -10,6 +10,9 @@ import { useCallback } from 'react';
 export interface DrawingAreaRef {
   exportImage: () => Promise<string>;
   addMermaidDiagram: (mermaidString: string) => Promise<void>;
+  // Add functions for save/load
+  getSceneData: () => { elements: readonly ExcalidrawElement[]; appState: AppState } | null;
+  updateSceneData: (elements: readonly ExcalidrawElement[], appState: Partial<AppState>) => void;
 }
 
 export function useDrawingAreaAPI(excalidrawAPI: ExcalidrawImperativeAPI | null): DrawingAreaRef {
@@ -191,5 +194,34 @@ export function useDrawingAreaAPI(excalidrawAPI: ExcalidrawImperativeAPI | null)
     }
   }, [excalidrawAPI]);
 
-  return { exportImage, addMermaidDiagram };
+  // --- Add getSceneData function ---
+  const getSceneData = useCallback(() => {
+    if (!excalidrawAPI) {
+      console.warn('[DrawingArea] getSceneData: Excalidraw API not available.');
+      return null;
+    }
+    return {
+      elements: excalidrawAPI.getSceneElements(),
+      appState: excalidrawAPI.getAppState(),
+    };
+  }, [excalidrawAPI]);
+
+  // --- Add updateSceneData function ---
+  const updateSceneData = useCallback((elements: readonly ExcalidrawElement[], appState: Partial<AppState>) => {
+    if (!excalidrawAPI) {
+      console.warn('[DrawingArea] updateSceneData: Excalidraw API not available.');
+      return;
+    }
+    console.log('[DrawingArea] Updating scene with loaded data...');
+    excalidrawAPI.updateScene({
+      elements: elements,
+      // Explicitly cast to `any` to bypass strict type check for partial update
+      appState: appState as any, 
+      commitToHistory: true, // Make the load operation undoable
+    });
+    // Optional: Zoom to fit the loaded content - REMOVED as zoomToFit doesn't exist
+    // excalidrawAPI.zoomToFit(elements, appState.zoom.value, 0.1); 
+  }, [excalidrawAPI]);
+
+  return { exportImage, addMermaidDiagram, getSceneData, updateSceneData };
 }

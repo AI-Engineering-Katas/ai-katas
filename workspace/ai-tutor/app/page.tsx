@@ -23,6 +23,8 @@ const HomePage: React.FC = () => {
   const [hasDrawingContent, setHasDrawingContent] = useState(false);
   const [lastAssistantDrawing, setLastAssistantDrawing] = useState<string | null>(null); 
   const [isProcessingDiagram, setIsProcessingDiagram] = useState(false);
+  // Add ref for file input
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const { 
     messages, 
@@ -185,10 +187,156 @@ const HomePage: React.FC = () => {
     drawingAreaRef.current = api; 
   }, []);
 
+  // --- Save Session Logic ---
+  const handleSave = useCallback(() => {
+    if (!drawingAreaRef.current) {
+      console.error("Drawing area API not ready for saving.");
+      // Maybe show a user notification
+      return;
+    }
+
+    const sceneData = drawingAreaRef.current.getSceneData();
+    if (!sceneData) {
+        console.error("Could not retrieve scene data for saving.");
+        return;
+    }
+
+    const sessionData = {
+      drawing: sceneData,
+      chat: messages, // Get current messages from useChat
+    };
+
+    const blob = new Blob([JSON.stringify(sessionData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'ai-tutor-session.json'; // Filename for download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+    console.log("Session saved.");
+
+  }, [drawingAreaRef, messages]);
+
+  // --- Load Session Logic ---
+  const handleFileChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const content = e.target?.result;
+        if (typeof content !== 'string') {
+          throw new Error("Failed to read file content.");
+        }
+        const loadedData = JSON.parse(content);
+
+        // Basic validation
+        if (!loadedData || typeof loadedData !== 'object' || !loadedData.drawing || !loadedData.chat) {
+          throw new Error("Invalid session file format.");
+        }
+        if (!Array.isArray(loadedData.drawing.elements) || typeof loadedData.drawing.appState !== 'object') {
+             throw new Error("Invalid drawing data in session file.");
+        }
+        if (!Array.isArray(loadedData.chat)) {
+            throw new Error("Invalid chat data in session file.");
+        }
+
+        // Restore state
+        if (drawingAreaRef.current) {
+          // Ensure appState is not null/undefined before passing
+          const loadedAppState = loadedData.drawing.appState || {};
+          
+          // --- Filter appState properties to restore ---
+          // Only restore essential visual/canvas properties. 
+          // Avoid restoring transient UI state like collaborators, active tools, etc.
+          const appStateToRestore: Partial<AppState> = {
+            viewBackgroundColor: loadedAppState.viewBackgroundColor,
+            gridSize: loadedAppState.gridSize,
+            // Add other essential state properties you want to preserve here
+            // e.g., currentItemStrokeColor, currentItemRoughness, etc. if desired
+            // --- Crucially, DO NOT include: collaborators, activeTool, openMenu, etc.
+          };
+          
+          // Get current scroll/zoom to potentially keep the view centered
+          const currentAppState = drawingAreaRef.current.getSceneData()?.appState;
+          if (currentAppState) {
+             appStateToRestore.scrollX = currentAppState.scrollX;
+             appStateToRestore.scrollY = currentAppState.scrollY;
+             appStateToRestore.zoom = currentAppState.zoom; 
+          } else {
+             // Fallback if current state isn't available
+             appStateToRestore.scrollX = loadedAppState.scrollX;
+             appStateToRestore.scrollY = loadedAppState.scrollY;
+             appStateToRestore.zoom = loadedAppState.zoom;
+          }
+
+          drawingAreaRef.current.updateSceneData(loadedData.drawing.elements, appStateToRestore);
+          console.log("Drawing state restored (filtered appState).");
+        } else {
+          console.error("Drawing area ref not available to restore state.");
+          // Handle this case, maybe alert user
+        }
+        setMessages(loadedData.chat);
+        console.log("Chat history restored.");
+
+        // Reset file input value so the same file can be loaded again if needed
+        if (fileInputRef.current) {
+            fileInputRef.current.value = "";
+        }
+
+      } catch (error) {
+        console.error("Error loading session:", error);
+        alert(`Failed to load session: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        // Reset file input value on error too
+        if (fileInputRef.current) {
+            fileInputRef.current.value = "";
+        }
+      }
+    };
+    reader.onerror = (e) => {
+        console.error("Error reading file:", e);
+        alert("Error reading the selected file.");
+    };
+    reader.readAsText(file);
+  }, [drawingAreaRef, setMessages]);
+
+  const triggerLoad = useCallback(() => {
+    fileInputRef.current?.click();
+  }, []);
+
   return (
     <div className="flex flex-col h-screen bg-gray-100">
-      <header className="bg-white shadow-md p-4">
+      <header className="bg-white shadow-md p-4 flex justify-between items-center">
         <h1 className="text-xl font-semibold text-gray-800">AI System Design Tutor</h1>
+        {/* Add Save/Load Buttons */}
+        <div className="flex space-x-2">
+            <button 
+                onClick={handleSave}
+                className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm"
+            >
+                Save Session
+            </button>
+            <button 
+                onClick={triggerLoad}
+                className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 text-sm"
+            >
+                Load Session
+            </button>
+            {/* Hidden file input */}
+            <input 
+                type="file" 
+                ref={fileInputRef} 
+                onChange={handleFileChange} 
+                accept=".json"
+                style={{ display: 'none' }} 
+            />
+        </div>
       </header>
 
       <div className="flex flex-1 overflow-hidden">
