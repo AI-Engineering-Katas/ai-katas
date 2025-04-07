@@ -1,179 +1,244 @@
 'use client';
 
-import React, { useState, useCallback, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import dynamic from 'next/dynamic';
-import ChatInput from './components/ChatInput';
-import ChatMessage from './components/ChatMessage';
-import type { DrawingAreaRef } from './components/DrawingArea';
+import { useChat, type Message as UIMessage } from 'ai/react'; 
+
+import ChatInput from './components/ChatInput'; 
+import ChatMessage from './components/ChatMessage'; 
+// Import DrawingArea dynamically with SSR disabled
+const DrawingArea = dynamic(
+  () => import('./components/DrawingArea'),
+  { ssr: false, loading: () => <div className="w-full h-full bg-white flex items-center justify-center">Loading drawing area...</div> }
+);
+import { DrawingAreaRef } from './hooks/useDrawingAreaAPI';
+
 import type { ExcalidrawElement } from '@excalidraw/excalidraw/types/element/types';
 import type { AppState } from '@excalidraw/excalidraw/types/types';
 
-const DrawingArea = dynamic(
-  () => import('./components/DrawingArea').then((mod) => mod.default),
-  {
-    ssr: false,
-    loading: () => <p>Loading Drawing Area...</p>
-  }
-);
-
-// Define the consistent Message interface
-interface Message {
-  id: string;
-  role: 'user' | 'assistant';
-  content: string;
-  image?: string;         // Optional: For user messages with images
-  mermaidDiagram?: string; // Optional: For assistant messages containing a diagram
-}
-
 const HomePage: React.FC = () => {
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [drawingApi, setDrawingApi] = useState<DrawingAreaRef | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  // State for pending diagram data
-  const [pendingMermaid, setPendingMermaid] = useState<string | null>(null);
+  const excalidrawAPI = useRef<any | null>(null);
+  const drawingAreaRef = useRef<DrawingAreaRef | null>(null);
+  const [isDrawingAllowed, setIsDrawingAllowed] = useState(false); 
+  const [hasDrawingContent, setHasDrawingContent] = useState(false);
+  const [lastAssistantDrawing, setLastAssistantDrawing] = useState<string | null>(null); 
+  const [isProcessingDiagram, setIsProcessingDiagram] = useState(false);
 
-  const sendMessage = useCallback(async (messageContent: string, imageData?: string, generateMermaid?: boolean) => {
-    if (isLoading) return;
-    setIsLoading(true);
+  const { 
+    messages, 
+    input, 
+    handleInputChange, 
+    handleSubmit, 
+    isLoading, 
+    error, 
+    setMessages, 
+    append, 
+    setInput 
+  } = useChat({
+    api: '/api/chat',
+    onFinish: (message: UIMessage) => {
+      console.log("--- onFinish Triggered ---");
+      console.log("Full message object:", JSON.stringify(message, null, 2));
 
-    const currentUserMessage: Message = {
-      id: Date.now().toString() + '-user',
-      role: 'user',
-      content: messageContent,
-      image: imageData,
-    };
+      if (message.role === 'assistant' && message.toolInvocations) {
+        console.log("Assistant message has tool invocations:", message.toolInvocations);
+        
+        const drawingInvocation = message.toolInvocations.find(
+          (inv) => inv.toolName === 'generate_drawing'
+        );
 
-    setMessages(prev => [...prev, currentUserMessage]);
+        if (drawingInvocation) {
+          console.log("Found generate_drawing invocation:", JSON.stringify(drawingInvocation, null, 2));
+          
+          // Safely access the result property
+          const drawingResult = drawingInvocation && 'result' in drawingInvocation 
+              ? drawingInvocation.result 
+              : undefined;
 
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: messageContent, imageData, generateMermaid }),
-      });
-
-      console.log('[Frontend] Received response status:', response.status);
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error('[Frontend] API Error:', errorData);
-        throw new Error(errorData.error || 'Failed to fetch response');
-      }
-
-      const data = await response.json();
-      console.log('[Frontend] Received data:', data);
-
-      let assistantMessage: Message | null = null;
-
-      if (data.mermaidDiagram) {
-        console.log('[Frontend] Mermaid diagram data received.');
-        // Set pending state instead of rendering immediately
-        setPendingMermaid(data.mermaidDiagram);
-        // Update placeholder message
-        assistantMessage = {
-          id: Date.now().toString() + '-assistant',
-          role: 'assistant',
-          content: '_(Processing Mermaid diagram...)_',
-          mermaidDiagram: data.mermaidDiagram, // Keep for reference if needed
-        };
-      } else if (data.message) {
-        console.log('[Frontend] Regular message received:', data.message);
-        assistantMessage = {
-          id: Date.now().toString() + '-assistant',
-          role: 'assistant',
-          content: data.message,
-        };
+          console.log("Invocation result object:", JSON.stringify(drawingResult, null, 2));
+          
+          if (typeof drawingResult === 'string' && drawingResult.trim()) {
+             const potentialMermaid = drawingResult.trim();
+             if (potentialMermaid.startsWith('graph') || potentialMermaid.startsWith('flowchart') || potentialMermaid.startsWith('sequenceDiagram') || potentialMermaid.startsWith('classDiagram')) {
+                console.log("[onFinish] Tool result seems to be the Mermaid diagram string directly.");
+                setLastAssistantDrawing(potentialMermaid);
+             } else {
+                console.warn("[onFinish] Tool result was a string, but didn't look like Mermaid code:", potentialMermaid);
+             }
+          } else if (typeof drawingResult === 'object' && drawingResult !== null && 'error' in drawingResult) {
+            const errorMsg = (drawingResult as any).error;
+            console.warn("[onFinish] Drawing tool returned an error in result:", errorMsg);
+            const errorId = Date.now().toString() + '-tool-error';
+            setMessages(prev => [...prev, { id: errorId, role: 'assistant', content: `AI Drawing failed: ${errorMsg}` }]);
+          } else {
+            console.warn("[onFinish] generate_drawing invocation result was not a Mermaid string or a known error structure.");
+          }
+        } else {
+          console.log("No generate_drawing invocation found in this message.");
+        }
+      } else if (message.role === 'assistant') {
+        console.log("Assistant message without tool invocations received.");
       } else {
-        console.warn('[Frontend] Received unexpected data format:', data);
-        throw new Error('Unexpected response format from server');
+         console.log(`onFinish called for role: ${message.role}`);
       }
-
-      if (assistantMessage) {
-        setMessages(prev => [...prev, assistantMessage!]);
-      }
-
-    } catch (error) {
-      console.error('Error sending message:', error);
-      const errorMessage: Message = {
-        id: Date.now().toString() + '-error',
-        role: 'assistant',
-        content: `Error: ${error instanceof Error ? error.message : 'An unknown error occurred'}`,
-      };
-      setMessages(prev => [...prev, errorMessage]);
-      setPendingMermaid(null); // Clear pending state on error
-    } finally {
-      setIsLoading(false);
+      console.log("--- onFinish End ---");
+    },
+    onError: (err) => {
+      console.error("Chat error:", err);
+      const errorId = Date.now().toString() + '-error';
+      setMessages(prev => [...prev, { id: errorId, role: 'assistant', content: `Sorry, an error occurred: ${err.message}` }]);
     }
-  }, [isLoading]); // Remove drawingApi dependency for now, useEffect handles it
+  });
 
-  // Effect to render pending Mermaid diagram when API is ready
   useEffect(() => {
-    // Log the state check
-    console.log(`[HomePage useEffect Check] drawingApi: ${drawingApi ? 'Exists' : 'null'}, pendingMermaid: ${pendingMermaid ? 'Exists' : 'null'}`);
-    if (drawingApi && pendingMermaid) {
-      console.log('[HomePage useEffect] Both API and pending Mermaid are ready. Rendering...');
-      drawingApi.addMermaidDiagram(pendingMermaid)
+    if (lastAssistantDrawing && drawingAreaRef.current) {
+      console.log("%c Attempting to render Mermaid diagram: %c", "color: blue; font-weight: bold;", "color: black;", lastAssistantDrawing);
+      
+      // Set processing state
+      setIsProcessingDiagram(true);
+      
+      // Use the addMermaidDiagram function from the DrawingAreaRef
+      drawingAreaRef.current.addMermaidDiagram(lastAssistantDrawing)
         .then(() => {
-          console.log('[HomePage useEffect] addMermaidDiagram call finished successfully.');
-          // Optional: Find and update the assistant message content?
-          // This can be complex, maybe the initial placeholder is enough.
+          console.log("Successfully added Mermaid diagram to Excalidraw");
+          // Clear the last assistant drawing after processing
+          setLastAssistantDrawing(null);
         })
-        .catch((error) => {
-          console.error('[HomePage useEffect] Error calling addMermaidDiagram:', error);
-          // Optional: Update message to show error?
+        .catch(error => {
+          console.error("Error adding Mermaid diagram to Excalidraw:", error);
+          // Show error message to user
+          const errorId = Date.now().toString() + '-diagram-error';
+          setMessages(prev => [...prev, { 
+            id: errorId, 
+            role: 'assistant', 
+            content: `Failed to render diagram: ${error.message || 'Unknown error'}` 
+          }]);
         })
         .finally(() => {
-            console.log('[HomePage useEffect] Clearing pending Mermaid state.');
-            setPendingMermaid(null); // Clear the pending state regardless of success/error
+          setIsProcessingDiagram(false);
         });
+    } else if (lastAssistantDrawing && !drawingAreaRef.current) {
+      console.warn("Received Mermaid diagram but DrawingArea API is not available");
+      setLastAssistantDrawing(null);
     }
-  }, [drawingApi, pendingMermaid]);
-
-  const handleChatInputSend = (message: string, generateMermaid: boolean) => {
-    sendMessage(message, undefined, generateMermaid);
-  };
-
-  const handleDrawingLoad = useCallback((api: DrawingAreaRef | null) => {
-    console.log('[HomePage] handleDrawingLoad called with:', api);
-    setDrawingApi(api);
-  }, []);
+  }, [lastAssistantDrawing, setMessages]);
 
   const handleDrawingChange = (elements: readonly ExcalidrawElement[], state: AppState) => {
-    // console.log("Drawing changed:", elements, state);
-    // You can save elements/state here if needed
+    setHasDrawingContent(elements.length > 0);
   };
+
+  const handleSend = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+    let imageToSend: string | undefined = undefined;
+    
+    // Check if we have drawing content and the drawing API is available
+    if (hasDrawingContent && drawingAreaRef.current) {
+      // Use the exportImage method from DrawingAreaRef instead of directly accessing Excalidraw API
+      drawingAreaRef.current.exportImage()
+        .then(imageDataUrl => {
+          if (imageDataUrl) {
+            // Extract the base64 data part from the data URL
+            const base64Data = imageDataUrl.split(',')[1];
+            
+            // Submit the form with the image data
+            handleSubmit(e, {
+              data: {
+                imageData: base64Data,
+                isDrawingAllowed,
+              }
+            });
+          } else {
+            // If no image data was returned, submit without image
+            handleSubmit(e, {
+              data: {
+                imageData: null,
+                isDrawingAllowed,
+              }
+            });
+          }
+        })
+        .catch(error => {
+          console.error("Error exporting image:", error);
+          // Submit without image data if export fails
+          handleSubmit(e, {
+            data: {
+              imageData: null,
+              isDrawingAllowed,
+            }
+          });
+        });
+    } else {
+      // No drawing content or API not available, submit without image
+      handleSubmit(e, {
+        data: {
+          imageData: null,
+          isDrawingAllowed,
+        }
+      });
+    }
+    
+    // Prevent default form submission since we're handling it asynchronously
+    e.preventDefault();
+  }, [hasDrawingContent, isDrawingAllowed, handleSubmit, drawingAreaRef]);
+
+  const handleDrawingLoad = useCallback((api: DrawingAreaRef | null) => {
+    console.log('[HomePage] handleDrawingLoad called with:', api ? 'API object' : 'null');
+    drawingAreaRef.current = api; 
+  }, []);
 
   return (
     <div className="flex flex-col h-screen bg-gray-100">
-      {/* Header (Optional) */}
       <header className="bg-white shadow-md p-4">
-        <h1 className="text-xl font-semibold text-gray-800">AI Tutor</h1>
+        <h1 className="text-xl font-semibold text-gray-800">AI System Design Tutor</h1>
       </header>
 
-      {/* Main Content Area */}
       <div className="flex flex-1 overflow-hidden">
-        {/* Drawing Area */}
         <div className="flex-1 relative bg-white border-r border-gray-200">
-          <DrawingArea onLoad={handleDrawingLoad} onChange={handleDrawingChange} />
+          {isProcessingDiagram && (
+            <div className="absolute inset-0 bg-white bg-opacity-70 flex items-center justify-center z-10">
+              <div className="text-lg font-semibold text-blue-600">Processing diagram...</div>
+            </div>
+          )}
+          <DrawingArea
+            onLoad={handleDrawingLoad}
+            onChange={handleDrawingChange}
+          />
         </div>
 
-        {/* Chat Area */}
         <div className="w-1/3 flex flex-col bg-white">
-          {/* Message List */}
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
-            {messages.map((msg) => (
-              <ChatMessage key={msg.id} message={msg} />
-            ))}
-            {isLoading && (
-              <div className="flex justify-center">
-                <p className="text-gray-500 italic">Assistant is thinking...</p>
-              </div>
-            )}
+            {messages
+              .filter((msg) => msg.role === 'user' || msg.role === 'assistant') 
+              .map((message, index) => (
+                <div key={message.id || index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <ChatMessage message={message} /> 
+                </div>
+              ))}
           </div>
 
-          {/* Input Area */}
+          {error && (
+            <div className="text-red-500 p-4">Error: {error.message}</div>
+          )}
+
           <div className="p-4 border-t border-gray-200">
-            <ChatInput onSendMessage={handleChatInputSend} isLoading={isLoading} />
+            <div className="mb-2">
+              <label className="flex items-center space-x-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={isDrawingAllowed}
+                  onChange={(e) => setIsDrawingAllowed(e.target.checked)}
+                  className="form-checkbox h-5 w-5 text-blue-600"
+                  disabled={isLoading}
+                />
+                <span className="text-gray-700">Allow AI to Draw</span>
+              </label>
+            </div>
+            <form onSubmit={handleSend}>
+              <ChatInput
+                value={input} 
+                onChange={handleInputChange as any} 
+                isLoading={isLoading}
+              />
+            </form>
           </div>
         </div>
       </div>
