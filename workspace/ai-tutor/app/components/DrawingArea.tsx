@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, forwardRef } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import type { AppState, ExcalidrawImperativeAPI } from '@excalidraw/excalidraw/types/types';
 import { useDrawingAreaAPI, DrawingAreaRef } from '../hooks/useDrawingAreaAPI';
@@ -27,7 +27,7 @@ interface DrawingAreaProps {
 
 const DrawingArea = forwardRef<HTMLDivElement, DrawingAreaProps>(({ onChange, onLoad }, ref) => {
   const [excalidrawAPI, setExcalidrawAPI] = useState<ExcalidrawImperativeAPI | null>(null);
-  const drawingAreaApi = useDrawingAreaAPI(excalidrawAPI);
+  const { drawingAreaRef } = useDrawingAreaAPI();
 
   const handleSetExcalidrawAPI = (api: ExcalidrawImperativeAPI | null) => {
     console.log('[DrawingArea] handleSetExcalidrawAPI called with:', api ? 'API object' : 'null');
@@ -37,7 +37,14 @@ const DrawingArea = forwardRef<HTMLDivElement, DrawingAreaProps>(({ onChange, on
   useEffect(() => {
     if (excalidrawAPI) {
       console.log('[DrawingArea useEffect] Excalidraw API is ready. Calling onLoad with API from hook.');
-      onLoad?.(drawingAreaApi);
+      // Make sure drawingAreaRef.current is populated with the API
+      if (drawingAreaRef.current) {
+        drawingAreaRef.current.api = excalidrawAPI;
+        console.log('[DrawingArea useEffect] Updated drawingAreaRef.current.api with excalidrawAPI');
+      } else {
+        console.error('[DrawingArea useEffect] drawingAreaRef.current is null!');
+      }
+      onLoad?.(drawingAreaRef.current);
     } else {
       console.log('[DrawingArea useEffect] Excalidraw API is null. Calling onLoad(null).');
       onLoad?.(null);
@@ -47,7 +54,7 @@ const DrawingArea = forwardRef<HTMLDivElement, DrawingAreaProps>(({ onChange, on
       console.log('[DrawingArea useEffect cleanup] Optional: Ensure parent knows API is potentially gone.');
       // onLoad?.(null); 
     };
-  }, [excalidrawAPI, drawingAreaApi, onLoad]);
+  }, [excalidrawAPI, drawingAreaRef, onLoad]);
 
   try {
     console.log('Attempting to render Excalidraw');

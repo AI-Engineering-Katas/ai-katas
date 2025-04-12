@@ -1,227 +1,266 @@
 'use client';
 
-import { ExcalidrawImperativeAPI, AppState } from '@excalidraw/excalidraw/types/types';
+import { useCallback, useRef, useState } from 'react';
+import type { ExcalidrawImperativeAPI, AppState, NormalizedZoomValue } from '@excalidraw/excalidraw/types/types';
 import type { ExcalidrawElement, NonDeletedExcalidrawElement, NonDeleted } from '@excalidraw/excalidraw/types/element/types';
-import { parseMermaidToExcalidraw } from '@excalidraw/mermaid-to-excalidraw';
-import { exportToBlob } from '@excalidraw/utils';
-import { getCommonBounds, convertToExcalidrawElements } from '@excalidraw/excalidraw';
-import { useCallback } from 'react';
 
-export interface DrawingAreaRef {
+// Remove static imports that cause SSR issues
+// import { parseMermaidToExcalidraw } from '@excalidraw/mermaid-to-excalidraw';
+// import { getCommonBounds, convertToExcalidrawElements } from '@excalidraw/excalidraw';
+// import { exportToBlob } from '@excalidraw/utils';
+
+export interface SceneData {
+  elements: readonly NonDeleted<ExcalidrawElement>[];
+  appState: Readonly<AppState>;
+}
+
+export interface DrawingAreaControlFunctions {
   exportImage: () => Promise<string>;
   addMermaidDiagram: (mermaidString: string) => Promise<void>;
-  // Add functions for save/load
-  getSceneData: () => { elements: readonly ExcalidrawElement[]; appState: AppState } | null;
+  getSceneData: () => SceneData | null;
   updateSceneData: (elements: readonly ExcalidrawElement[], appState: Partial<AppState>) => void;
 }
 
-export function useDrawingAreaAPI(excalidrawAPI: ExcalidrawImperativeAPI | null): DrawingAreaRef {
+export interface UseDrawingAreaResult extends DrawingAreaControlFunctions {
+  excalidrawAPI: React.MutableRefObject<ExcalidrawImperativeAPI | null>;
+  drawingAreaRef: React.RefObject<DrawingAreaRef | null>;
+  isDrawingAllowed: boolean;
+  setIsDrawingAllowed: (value: boolean) => void;
+  hasDrawingContent: boolean;
+  lastAssistantDrawing: string | null;
+  setLastAssistantDrawing: (value: string | null) => void;
+  isProcessingDiagram: boolean;
+  setIsProcessingDiagram: (value: boolean) => void;
+  handleDrawingChange: (elements: readonly ExcalidrawElement[], state: AppState) => void;
+  handleDrawingLoad: (api: ExcalidrawImperativeAPI) => void;
+}
+
+export interface DrawingAreaRef { 
+  api: ExcalidrawImperativeAPI | null;
+}
+
+// Type for the data to be loaded potentially after init
+type PendingSceneData = { 
+  elements: readonly ExcalidrawElement[], 
+  appState: Partial<AppState>, 
+  pendingMermaidDiagram?: string | null 
+} | null;
+
+export function useDrawingAreaAPI(): UseDrawingAreaResult {
+  const excalidrawAPI = useRef<ExcalidrawImperativeAPI | null>(null);
+  const drawingAreaRef = useRef<DrawingAreaRef | null>(null);
+  const [isDrawingAllowed, setIsDrawingAllowed] = useState(false);
+  const [hasDrawingContent, setHasDrawingContent] = useState(false);
+  const [lastAssistantDrawing, setLastAssistantDrawing] = useState<string | null>(null);
+  const [isProcessingDiagram, setIsProcessingDiagram] = useState(false);
+  // State to hold scene data if updateSceneData is called before API is ready
+  const [pendingSceneData, setPendingSceneData] = useState<PendingSceneData>(null);
 
   const exportImage = useCallback(async (): Promise<string> => {
-    console.log('Starting image export process (viewport)...');
-    if (!excalidrawAPI) {
-      console.warn('No excalidrawAPI available for export');
-      return '';
-    }
+    if (typeof window === 'undefined' || !excalidrawAPI.current) return '';
+    
+    const elements = excalidrawAPI.current.getSceneElements();
+    const appState = excalidrawAPI.current.getAppState();
 
-    const elements = excalidrawAPI.getSceneElements();
-    const appState = excalidrawAPI.getAppState();
-    const files = excalidrawAPI.getFiles();
-
-    console.log('Got export data:', { 
-      elementCount: elements.length,
-      appStateWidth: appState.width,
-      appStateHeight: appState.height,
-      scrollX: appState.scrollX,
-      scrollY: appState.scrollY,
-      zoom: appState.zoom.value
-    });
-
-    // Check if the container has valid dimensions
-    if (!appState.width || !appState.height) {
-        console.warn('Cannot export image, container dimensions are invalid:', { width: appState.width, height: appState.height });
-        return '';
-    }
+    if (!appState.width || !appState.height) return '';
 
     try {
-      console.log('Using imported exportToBlob');
-
-      // Calculate view bounds based on appState
+      // Use dynamic import for browser-only code
+      const { exportToBlob } = await import('@excalidraw/utils');
+      
       const viewportWidth = appState.width / appState.zoom.value;
       const viewportHeight = appState.height / appState.zoom.value;
-      const minX = -appState.scrollX / appState.zoom.value;
-      const minY = -appState.scrollY / appState.zoom.value;
-
-      console.log('Calculated viewport bounds:', {
-        minX,
-        minY,
-        width: viewportWidth,
-        height: viewportHeight,
-        zoom: appState.zoom.value
-      });
-
-      // Destructure appState and omit potentially problematic properties for export
       const { contextMenu, activeEmbeddable, ...restAppState } = appState;
 
-      // Create a modified appState that focuses on the current viewport
       const exportAppState: Partial<AppState> = {
-        ...restAppState, // Use the rest of appState
-        // Optionally override specific properties for export if needed
-        // e.g., exportBackground: false, viewBackgroundColor: '#ffffff',
-        currentItemStrokeColor: appState.currentItemStrokeColor, // Ensure essential properties are included
-        // Setting scroll to 0,0 and zoom to 1 might help center the export
-        // scrollX: 0, 
-        // scrollY: 0,
-        // zoom: { value: 1 }
+        ...restAppState,
+        viewBackgroundColor: '#ffffff',
+        exportWithDarkMode: false,
+        exportScale: 2,
+        scrollX: 0,
+        scrollY: 0,
+        width: viewportWidth,
+        height: viewportHeight,
+        zoom: { value: 1 as NormalizedZoomValue }
       };
 
-      console.log('Exporting with appState (first level keys):', Object.keys(exportAppState));
-
       const blob = await exportToBlob({
-        elements: elements as any, // Using 'as any' to bypass type mismatch for elements
-        appState: exportAppState as any, // Using 'as any' to bypass type mismatch for appState
-        files: files,
-        mimeType: 'image/png',
-        // Using appState dimensions directly, assuming exportToBlob respects it
-        getDimensions: (width: number, height: number) => { 
-          console.log(`getDimensions called with scene: ${width}x${height}. Using appState: ${appState.width}x${appState.height}`);
-          return { width: appState.width, height: appState.height, scale: 1 }; 
-        },
-        // exportPadding: 0, // Default padding
+        // Cast elements to any to resolve persistent type mismatch
+        elements: elements as any,
+        appState: exportAppState,
+        files: excalidrawAPI.current.getFiles(),
+        getDimensions: (width: number, height: number): { width: number; height: number } => ({ width, height }),
       });
 
-      console.log('Blob created successfully:', blob);
-
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          console.log('FileReader finished reading blob.');
-          const base64 = reader.result as string;
-          console.log('Base64 string generated (first 100 chars):', base64.substring(0, 100));
-          resolve(base64);
-        };
-        reader.onerror = (error) => {
-          console.error('FileReader error:', error);
-          reject('Error reading blob');
-        };
-        reader.readAsDataURL(blob);
-      });
-
+      return URL.createObjectURL(blob);
     } catch (error) {
-      console.error('Error exporting image:', error);
-      return ''; // Return empty string or throw error
+      console.error('[DrawingArea] Error exporting image:', error);
+      return '';
     }
-  }, [excalidrawAPI]);
+  }, []);
 
-  const addMermaidDiagram = useCallback(async (mermaidString: string) => {
-    if (!excalidrawAPI) {
-      console.warn('[DrawingArea] addMermaidDiagram: Excalidraw API not available.');
+  const addMermaidDiagram = useCallback(async (mermaidString: string): Promise<void> => {
+    if (typeof window === 'undefined') {
+      console.error('[addMermaidDiagram] Not in browser context');
       return;
     }
-    console.log('[DrawingArea] addMermaidDiagram called with Mermaid string.');
+    
+    if (!excalidrawAPI.current) {
+      console.error('[addMermaidDiagram] Excalidraw API not available');
+      
+      // Store the Mermaid string to render later when API is available
+      setPendingSceneData(prev => {
+        if (prev) {
+          return {
+            ...prev,
+            pendingMermaidDiagram: mermaidString
+          };
+        } else {
+          // Create a new pendingSceneData object with empty elements and appState
+          return {
+            elements: [],
+            appState: {},
+            pendingMermaidDiagram: mermaidString
+          };
+        }
+      });
+      
+      console.log('[addMermaidDiagram] Stored Mermaid diagram for later rendering');
+      return;
+    }
 
+    console.log('[addMermaidDiagram] Starting with Mermaid string:', mermaidString.substring(0, 100) + '...');
+    
     try {
-      console.log('[DrawingArea] 1. Parsing Mermaid string...');
+      // Use dynamic imports with proper client-side check
+      console.log('[addMermaidDiagram] Importing dependencies...');
+      const { parseMermaidToExcalidraw } = await import('@excalidraw/mermaid-to-excalidraw');
+      const { getCommonBounds, convertToExcalidrawElements } = await import('@excalidraw/excalidraw');
+      
+      console.log('[addMermaidDiagram] Parsing Mermaid to Excalidraw...');
       const { elements: skeletonElements } = await parseMermaidToExcalidraw(mermaidString);
-
-      if (!skeletonElements || skeletonElements.length === 0) {
-        console.warn('[DrawingArea] Mermaid string parsed to empty skeleton elements.');
+      console.log('[addMermaidDiagram] Skeleton elements count:', skeletonElements.length);
+      
+      console.log('[addMermaidDiagram] Converting to Excalidraw elements...');
+      const newElements = convertToExcalidrawElements(skeletonElements);
+      console.log('[addMermaidDiagram] New elements count:', newElements.length);
+      
+      const nonDeletedNewElements = newElements.filter(
+        (el): el is NonDeleted<ExcalidrawElement> => !el.isDeleted
+      );
+      console.log('[addMermaidDiagram] Non-deleted elements count:', nonDeletedNewElements.length);
+      
+      if (nonDeletedNewElements.length === 0) {
+        console.error('[addMermaidDiagram] No valid elements after conversion');
         return;
       }
-      console.log(`[DrawingArea] Parsed ${skeletonElements.length} skeleton elements from Mermaid string.`);
-
-      // Convert skeleton elements to full elements BEFORE filtering/positioning
-      console.log('[DrawingArea] 2. Converting Skeleton to Full Excalidraw Elements...');
-      const newElements = convertToExcalidrawElements(skeletonElements);
-      console.log(`[DrawingArea] Converted to ${newElements.length} full Excalidraw elements.`);
-
-      if (newElements.length === 0) {
-          console.warn("[DrawingArea] Conversion resulted in no elements.");
-          return;
-      }
-
-      // Filter for non-deleted elements *after* conversion
-      const nonDeletedNewElements = newElements.filter(
-        (el): el is NonDeletedExcalidrawElement => !el.isDeleted
-      );
-
-      if (nonDeletedNewElements.length === 0) {
-          console.warn("[DrawingArea] No non-deleted elements to add after conversion.");
-          return;
-      }
       
-      console.log('[DrawingArea] 3. Calculating positioning...');
-      const appState = excalidrawAPI.getAppState();
-      const currentElements = excalidrawAPI.getSceneElements();
+      const appState = excalidrawAPI.current.getAppState();
+      const currentElements = excalidrawAPI.current.getSceneElements();
+      console.log('[addMermaidDiagram] Current scene elements count:', currentElements.length);
 
-      // Calculate the center of the current viewport
       const viewportCenterX = appState.width / 2 / appState.zoom.value - appState.scrollX / appState.zoom.value;
       const viewportCenterY = appState.height / 2 / appState.zoom.value - appState.scrollY / appState.zoom.value;
+      console.log('[addMermaidDiagram] Viewport center:', { x: viewportCenterX, y: viewportCenterY });
 
-      // Calculate the bounds and center of the new elements
-      // Using 'as any' to bypass strict type checks for getCommonBounds
-      const [minX, minY, maxX, maxY] = getCommonBounds(nonDeletedNewElements as any);
+      const [minX, minY, maxX, maxY] = getCommonBounds(nonDeletedNewElements);
       const newElementsWidth = maxX - minX;
       const newElementsHeight = maxY - minY;
       const newElementsCenterX = minX + newElementsWidth / 2;
       const newElementsCenterY = minY + newElementsHeight / 2;
+      console.log('[addMermaidDiagram] New elements bounds:', { minX, minY, maxX, maxY, width: newElementsWidth, height: newElementsHeight });
 
-      // Calculate the offset needed to center the new elements in the viewport
       const offsetX = viewportCenterX - newElementsCenterX;
       const offsetY = viewportCenterY - newElementsCenterY;
+      console.log('[addMermaidDiagram] Offset for centering:', { offsetX, offsetY });
 
-      console.log('[DrawingArea] Calculated positioning:', { viewportCenterX, viewportCenterY, newElementsCenterX, newElementsCenterY, offsetX, offsetY });
-
-      console.log('[DrawingArea] 4. Adjusting element positions...');
-      // Adjust positions of the non-deleted new elements
       const positionedElements = nonDeletedNewElements.map((element) => ({
         ...element,
         x: (element.x ?? 0) + offsetX,
         y: (element.y ?? 0) + offsetY,
       }));
-      // console.log('[DrawingArea] Positioned Elements:', positionedElements);
+      console.log('[addMermaidDiagram] Positioned elements ready, updating scene...');
 
-      console.log('[DrawingArea] 5. Adding elements to scene...');
-      excalidrawAPI.updateScene({
+      excalidrawAPI.current.updateScene({
         elements: [...currentElements, ...positionedElements],
-        // Ensure commitToHistory is true if you want this operation to be undoable
         commitToHistory: true 
       });
-      console.log('[DrawingArea] Successfully added Mermaid diagram elements to the scene.');
-
+      console.log('[addMermaidDiagram] Scene updated successfully!');
     } catch (error) {
-      console.error('[DrawingArea] Error processing or adding Mermaid diagram:', error);
+      console.error('[addMermaidDiagram] Error processing or adding Mermaid diagram:', error);
     }
-  }, [excalidrawAPI]);
+  }, []);
 
-  // --- Add getSceneData function ---
-  const getSceneData = useCallback(() => {
-    if (!excalidrawAPI) {
-      console.warn('[DrawingArea] getSceneData: Excalidraw API not available.');
-      return null;
-    }
+  const getSceneData = useCallback((): SceneData | null => {
+    if (!excalidrawAPI.current) return null;
     return {
-      elements: excalidrawAPI.getSceneElements(),
-      appState: excalidrawAPI.getAppState(),
+        elements: excalidrawAPI.current.getSceneElements(),
+        appState: excalidrawAPI.current.getAppState()
     };
-  }, [excalidrawAPI]);
+  }, []);
 
-  // --- Add updateSceneData function ---
   const updateSceneData = useCallback((elements: readonly ExcalidrawElement[], appState: Partial<AppState>) => {
-    if (!excalidrawAPI) {
-      console.warn('[DrawingArea] updateSceneData: Excalidraw API not available.');
+    if (!excalidrawAPI.current) {
+      console.warn('[updateSceneData] Excalidraw API not available yet. Storing data.');
+      // Store the data to be applied once the API is ready
+      setPendingSceneData({ elements, appState });
       return;
     }
-    console.log('[DrawingArea] Updating scene with loaded data...');
-    excalidrawAPI.updateScene({
-      elements: elements,
-      // Explicitly cast to `any` to bypass strict type check for partial update
-      appState: appState as any, 
-      commitToHistory: true, // Make the load operation undoable
+    // API is ready, update the scene directly
+    excalidrawAPI.current.updateScene({
+      elements,
+      appState: appState as any,
+      commitToHistory: true,
     });
-    // Optional: Zoom to fit the loaded content - REMOVED as zoomToFit doesn't exist
-    // excalidrawAPI.zoomToFit(elements, appState.zoom.value, 0.1); 
-  }, [excalidrawAPI]);
+  }, []);
 
-  return { exportImage, addMermaidDiagram, getSceneData, updateSceneData };
+  const handleDrawingChange = useCallback((elements: readonly ExcalidrawElement[], state: AppState) => {
+    setHasDrawingContent(elements.length > 0);
+  }, []);
+
+  const handleDrawingLoad = useCallback((api: ExcalidrawImperativeAPI) => {
+    excalidrawAPI.current = api;
+    console.log('[handleDrawingLoad] Excalidraw API loaded.');
+
+    // Check if there was pending scene data (e.g., from a file load)
+    if (pendingSceneData && excalidrawAPI.current) {
+      console.log('[handleDrawingLoad] Applying pending scene data.');
+      excalidrawAPI.current.updateScene({
+        elements: pendingSceneData.elements,
+        appState: pendingSceneData.appState as any, // Use type assertion to bypass type check
+        commitToHistory: true
+      });
+      // Clear the pending data
+      setPendingSceneData(null);
+    }
+
+    // Check if there was a pending Mermaid diagram
+    if (pendingSceneData?.pendingMermaidDiagram && excalidrawAPI.current) {
+      console.log('[handleDrawingLoad] Rendering pending Mermaid diagram.');
+      addMermaidDiagram(pendingSceneData.pendingMermaidDiagram);
+      // Clear the pending Mermaid diagram after rendering
+      setPendingSceneData(prev => prev ? {
+        ...prev,
+        pendingMermaidDiagram: null
+      } : null);
+    }
+  }, [pendingSceneData, addMermaidDiagram]); // Add pendingSceneData and addMermaidDiagram as dependencies
+
+  return {
+    excalidrawAPI,
+    drawingAreaRef,
+    isDrawingAllowed,
+    setIsDrawingAllowed,
+    hasDrawingContent,
+    lastAssistantDrawing,
+    setLastAssistantDrawing,
+    isProcessingDiagram,
+    setIsProcessingDiagram,
+    handleDrawingChange,
+    handleDrawingLoad,
+    exportImage,
+    addMermaidDiagram,
+    getSceneData,
+    updateSceneData,
+  };
 }

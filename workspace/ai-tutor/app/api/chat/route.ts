@@ -12,10 +12,7 @@ const ENABLE_RAG = process.env.ENABLE_RAG === 'true';
 // Define a type for the expected request body structure
 interface RequestBody {
   messages: CoreMessage[];
-  data?: { // Data is at the top level, optional
-    isDrawingAllowed?: boolean;
-    imageData?: string;
-  };
+  isDrawingAllowed?: boolean;
 }
 
 // Moved from llm/client.ts - Helper to format base64 image data
@@ -51,13 +48,12 @@ const queryCollection = async (query: string): Promise<string[]> => {
 
 export async function POST(req: Request) {
   try {
-    // Extract messages and top-level data object
-    const { messages, data }: RequestBody = await req.json();
+    // Extract messages and isDrawingAllowed directly from the body
+    const { messages, isDrawingAllowed: isDrawingAllowedFromRequest }: RequestBody = await req.json();
 
-    // --- Extract data from the TOP-LEVEL data object --- 
-    const isDrawingAllowed = data?.isDrawingAllowed === true; // Default to false
-    const imageData = data?.imageData; // Can be undefined
-    console.log(`[API Route] Received isDrawingAllowed: ${isDrawingAllowed}, Has Image (Ignored for now): ${!!imageData}`);
+    // --- Extract data --- 
+    const isDrawingAllowed = isDrawingAllowedFromRequest === true; // Default to false if undefined/null
+    console.log(`[API Route] Received isDrawingAllowed: ${isDrawingAllowed}`);
     // --- End Extraction --- 
 
     // --- Prepare messages for LLM --- 
@@ -69,23 +65,20 @@ export async function POST(req: Request) {
     console.log(`[API Route] Using ${initialMessages.length} initial messages for LLM.`);
     // --- End Preparation ---
 
-    // --- Define Tools --- 
-    const tools: Record<string, Tool<any, any>> = {
-      generate_drawing: tool({
-        description: 'Checks if the user has granted permission to draw. Call this FIRST when asked to draw. Returns a status object.',
+    // --- Define Tools (Conditionally) --- 
+    const tools: Record<string, Tool<any, any>> = {};
+
+    // Only add the drawing tool if permission is granted
+    if (isDrawingAllowed) {
+      console.log('[API Route] Drawing allowed, adding generate_drawing tool.');
+      tools.generate_drawing = tool({
+        description: 'Generate Mermaid code for the user\'s diagram request.',
         parameters: z.object({
           drawing_request_details: z.string().describe('The user\'s original request for a diagram.'),
         }),
         execute: async ({ drawing_request_details }) => {
-          // 1. Check permission FIRST
-          if (!isDrawingAllowed) {
-            console.log('[Tool generate_drawing] Permission check: DENIED.');
-            // Return error status the frontend understands
-            return { status: 'error', message: 'Drawing permission not granted. Please enable the "Allow AI to Draw" checkbox.' };
-          }
-
-          // 2. Permission Granted: Generate Mermaid Code via separate LLM call
-          console.log(`[Tool generate_drawing] Permission check: GRANTED. Requesting Mermaid code for: "${drawing_request_details}"`);
+          // Permission check is now done *before* adding the tool.
+          console.log(`[Tool generate_drawing] Requesting Mermaid code for: "${drawing_request_details}"`);
           try {
             const llmResponse = await generateText({
               model: openai(LLM_MODEL), // Use the same model
@@ -115,8 +108,10 @@ export async function POST(req: Request) {
             return { status: 'error', message: `Failed to generate diagram: ${error.message}` };
           }
         },
-      }),
-    };
+      });
+    } else {
+      console.log('[API Route] Drawing not allowed, generate_drawing tool omitted.');
+    }
 
     if (ENABLE_RAG) {
       tools.query_rag = tool({
