@@ -4,7 +4,7 @@
 
 A technology company wants to develop a wearable device that can understand and differentiate between various real-world contexts and topics in real-time, helping users better organize and process their daily experiences.
 
-Users: Initial target of 50,000 early adopters, expanding to broader consumer market
+Users: Initial target of 5,000 early adopters, expanding to broader consumer market
 
 ## Additional Context
 
